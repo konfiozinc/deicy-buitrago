@@ -1,85 +1,292 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-slate-950 select-none">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="theme-color" content="#1e3a8a"/>
-    <title>Deicy Yolima Buitrago Arismendy - Tarjeta Digital Profesional</title>
-    
-    <!-- Framework CSS & Iconografía Oficial -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>Deicy Yolima Buitrago Arismendy - Tarjeta Digital Pro</title>
+
+    <!-- Script de QR dinámico autónomo -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .font-playfair { font-family: 'Playfair Display', serif; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in-up { opacity: 0; animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         
-        /* Wow Effect: Brillo perimetral dinámico controlado (Azul Corporativo / Oro PNL) */
-        @keyframes brandGlow {
-            0%, 100% { border-color: rgba(243, 198, 119, 0.4); box-shadow: 0 0 12px rgba(30, 58, 138, 0.4); }
-            50% { border-color: rgba(30, 58, 138, 0.8); box-shadow: 0 0 20px rgba(243, 198, 119, 0.6); }
+        * { font-family: 'Inter', system-ui, -apple-system, sans-serif; box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #020617; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
+        
+        /* Chasis Fijo Móvil (380px max-width) */
+        .card-container {
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            max-height: 750px;
+            background: #0f172a;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+            border: 1px solid #1e3a8a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .wow-profile { animation: brandGlow 4s infinite ease-in-out; }
-        
-        /* Conversión: Pulso asincrónico para botón principal de WhatsApp */
-        @keyframes whatsappPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 8px 20px -4px rgba(37, 211, 102, 0.4); }
-            50% { transform: scale(1.02); box-shadow: 0 14px 25px -4px rgba(37, 211, 102, 0.6); }
+
+        /* Header Corporativo Azul / Dorado */
+        .card-header {
+            background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%);
+            padding: 24px 16px 20px 16px;
+            text-align: center;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            position: relative;
+            border-bottom: 1px solid rgba(243, 198, 119, 0.3);
         }
-        .pulse-whatsapp { animation: whatsappPulse 2s infinite ease-in-out; }
-        
-        .modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: #1e293b; border: 1px solid rgba(255,255,255,0.1); border-radius: 28px; width: 100%; max-w: 340px; transform: scale(0.96); transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .modal-overlay.active .modal-content { transform: scale(1); }
-        .app-container { height: 100vh; height: 100dvh; }
-        .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1e293b; color: #fff; padding: 8px 20px; border-radius: 999px; font-size: 13px; opacity: 0; pointer-events: none; transition: all 0.3s ease; z-index: 2000; border: 1px solid rgba(255,255,255,0.1); }
-        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        .badge-status {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: rgba(243, 198, 119, 0.15);
+            color: #f3c677;
+            border: 1px solid rgba(243, 198, 119, 0.3);
+            font-size: 8px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .avatar-building {
+            width: 80px;
+            height: 80px;
+            background: #ffffff;
+            border-radius: 50%;
+            margin: 10px auto 8px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #f3c677;
+            box-shadow: 0 0 15px rgba(30, 58, 138, 0.5);
+            padding: 6px;
+        }
+
+        /* Títulos */
+        .title-main { font-size: 18px; font-weight: 900; color: #ffffff; letter-spacing: -0.3px; line-height: 1.2; }
+        .title-sub { font-size: 10px; font-weight: 800; color: #60a5fa; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+        .slogan-box {
+            background: rgba(2, 6, 23, 0.7);
+            border: 1px solid rgba(243, 198, 119, 0.2);
+            border-radius: 12px;
+            padding: 6px 12px;
+            margin: 8px auto 0 auto;
+            max-width: 260px;
+        }
+        .slogan-text { font-size: 9px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Cuerpo de Acciones */
+        .content-body {
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+
+        /* Botón WhatsApp Oficial */
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            padding: 12px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Grilla Categorías Glassmorphism */
+        .grid-services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .service-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(96, 165, 250, 0.15);
+            color: #60a5fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .service-text { font-size: 9px; font-weight: 700; color: #cbd5e1; line-height: 1.2; }
+
+        .btn-phone {
+            background: #1e293b;
+            color: #ffffff;
+            border: 1px solid #334155;
+            padding: 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .btn-vcard {
+            background: #1e3a8a;
+            color: #ffffff;
+            border: 1px solid #3b82f6;
+            padding: 11px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+        }
+
+        /* Barra Inferior */
+        .bottom-nav {
+            background: #020617;
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 4px 6px 4px;
+            border-top: 1px solid #1e293b;
+        }
+        .nav-item {
+            color: #94a3b8;
+            background: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 8px;
+            font-weight: 600;
+            gap: 3px;
+            cursor: pointer;
+        }
+
+        /* Pie de Marca Blindado Konfío Zinc */
+        .brand-footer {
+            background: #020617;
+            color: #94a3b8;
+            font-size: 9px;
+            text-align: center;
+            padding: 8px 4px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-transform: uppercase;
+        }
+
+        /* Modales */
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.88);
+            backdrop-filter: blur(4px);
+            z-index: 50;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: #0f172a;
+            border: 1px solid #1e3a8a;
+            border-radius: 20px;
+            width: 100%;
+            max-height: 80vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        .modal-header {
+            background: #1e3a8a;
+            color: #f3c677;
+            padding: 12px 16px;
+            font-weight: 800;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .toast {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: #ffffff;
+            border: 1px solid #f3c677;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            display: none;
+            z-index: 60;
+        }
     </style>
 </head>
-<body class="bg-slate-950 w-full flex justify-center items-center overflow-hidden">
+<body>
 
-    <!-- 1. MODULO: SPLASH SCREEN -->
-    <div id="splash" class="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center z-[9999] transition-opacity duration-400">
-        <div class="text-center animate-pulse">
-            <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-blue-900 mb-3">
-                <i class="fas fa-building text-3xl text-blue-900"></i>
-            </div>
-            <h1 class="text-xl font-black text-white tracking-wider uppercase">Deicy Y. Buitrago</h1>
-            <p class="text-[10px] text-slate-400 tracking-widest mt-1 uppercase">Propiedad Horizontal</p>
-        </div>
-    </div>
+    <div class="card-container">
+        <div>
+            <!-- Header -->
+            <div class="card-header">
+                <span class="badge-status">Gestión de Éxito</span>
+                
+                <h1 class="title-main">Deicy Yolima Buitrago Arismendy</h1>
+                <div class="title-sub">Administradora de Propiedad Horizontal</div>
 
-    <!-- CHASIS APP PREMIUM FIJA (MANDATORIO: SIN SCROLL DE FONDO) -->
-    <div class="app-container w-full max-w-[380px] bg-slate-900 relative flex flex-col justify-between overflow-hidden shadow-2xl">
-        
-        <!-- CONTENIDO INTERNO DE PANTALLA -->
-        <div class="flex-grow flex flex-col justify-between pb-24 overflow-y-auto">
-            
-            <!-- 2. MODULO: PORTADA & HERO -->
-            <header class="relative bg-gradient-to-b from-slate-800 to-slate-900 pt-6 pb-6 px-5 text-center text-white rounded-b-[40px] shadow-2xl flex-shrink-0">
-                <div class="absolute top-3 right-4 bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-wider">
-                    Gestión de Éxito
-                </div>
-                
-                <h2 class="text-xl font-black text-white mt-2 tracking-tight px-2">Deicy Yolima Buitrago Arismendy</h2>
-                <p class="text-[11px] font-semibold text-blue-400 uppercase tracking-wider mt-1">Administradora de Propiedad Horizontal</p>
-                
-                <!-- ZONA CENTRAL DE SEGURIDAD DEL LOGO (FORZADO DESDE EL PRIMER MILISEGUNDO) -->
-                <div class="w-28 h-28 mx-auto bg-white rounded-full flex flex-col items-center justify-center border-4 wow-profile p-1 my-3 shadow-lg block overflow-hidden relative">
-                    <!-- SVG Autocontenido de alta fidelidad que replica exactamente el logo adjunto -->
-                    <svg viewBox="0 0 200 200" class="w-full h-full object-contain">
+                <!-- Isotipo Vectorial Edificio Copropiedad (Replica fiel autocontenida) -->
+                <div class="avatar-building">
+                    <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
                         <circle cx="100" cy="100" r="94" fill="none" stroke="#1e3a8a" stroke-width="1.5"/>
                         <circle cx="100" cy="100" r="90" fill="none" stroke="#1e3a8a" stroke-width="0.5" stroke-dasharray="4,2"/>
-                        <g fill="#2b4275">
+                        <g fill="#1e3a8a">
                             <!-- Edificio Izquierdo -->
                             <rect x="55" y="85" width="25" height="50"/>
                             <!-- Ventanas Edificio Izquierdo -->
@@ -89,9 +296,9 @@
                                 <rect x="60" y="112" width="4" height="6"/><rect x="71" y="112" width="4" height="6"/>
                                 <rect x="60" y="123" width="4" height="6"/><rect x="71" y="123" width="4" height="6"/>
                             </g>
-                            <!-- Edificio Central (Perspectiva Diagonal Superior) -->
+                            <!-- Edificio Central -->
                             <path d="M 95 45 L 120 53 L 120 125 L 95 120 Z"/>
-                            <!-- Ventanas Edificio Central -->
+                            <!-- Ventanas Centrales -->
                             <g fill="#ffffff">
                                 <path d="M 100 56 L 106 58 L 106 64 L 100 62 Z"/><path d="M 110 59 L 116 61 L 116 67 L 110 65 Z"/>
                                 <path d="M 100 67 L 106 69 L 106 75 L 100 73 Z"/><path d="M 110 70 L 116 72 L 116 78 L 110 76 Z"/>
@@ -101,271 +308,208 @@
                             </g>
                             <!-- Edificio Derecho -->
                             <rect x="115" y="90" width="30" height="45"/>
-                            <!-- Ventanas Edificio Derecho -->
                             <g fill="#ffffff">
                                 <rect x="120" y="95" width="6" height="3"/><rect x="133" y="95" width="6" height="3"/>
                                 <rect x="120" y="103" width="6" height="3"/><rect x="133" y="103" width="6" height="3"/>
                                 <rect x="120" y="111" width="6" height="3"/><rect x="133" y="111" width="6" height="3"/>
                                 <rect x="120" y="119" width="6" height="3"/><rect x="133" y="119" width="6" height="3"/>
-                                <rect x="120" y="127" width="6" height="3"/><rect x="133" y="127" width="6" height="3"/>
                             </g>
-                            <!-- Curva Base del Logo -->
                             <path d="M 35 145 Q 100 120 165 145 Q 100 132 35 145 Z"/>
                         </g>
                     </svg>
                 </div>
                 
-                <div class="bg-black/30 rounded-xl p-2 max-w-[260px] mx-auto shadow-inner border border-white/5">
-                    <span class="text-[9px] block text-slate-300 font-medium tracking-wide">Especialista en Gerencia · PNL Practitioner</span>
+                <div class="slogan-box">
+                    <div class="slogan-text">Especialista en Gerencia · PNL Practitioner</div>
                 </div>
-            </header>
+            </div>
 
-            <!-- CONTENIDO CENTRAL OPERATIVO -->
-            <div class="px-5 space-y-3.5 flex-grow flex flex-col justify-center mt-2">
+            <!-- Cuerpo Interactivo -->
+            <div class="content-body">
                 
-                <!-- 3. MODULO: CTA DE ALTA CONVERSIÓN -->
-                <div class="fade-in-up">
-                    <a href="https://wa.me/573054855538?text=Hola%20Deicy,%20me%20interesa%20conocer%20más%20sobre%20tus%20servicios%20de%20Administración%20de%20Propiedad%20Horizontal." target="_blank" class="w-full flex items-center justify-center bg-[#25D366] text-white font-black py-3.5 px-4 rounded-xl text-center text-xs uppercase tracking-wider transition-transform transform active:scale-95 pulse-whatsapp">
-                        <i class="fab fa-whatsapp text-xl mr-2 text-white"></i> Contactar por WhatsApp
-                    </a>
+                <a href="https://wa.me/573054855538?text=Hola%20Deicy,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20Administra%C3%B3n%20de%20Propiedad%20Horizontal." target="_blank" class="btn-whatsapp">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                    Contactar por WhatsApp
+                </a>
+
+                <div class="grid-services">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                        </div>
+                        <span class="service-text">Admin. Copropiedades</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                        </div>
+                        <span class="service-text">Gerencia Eficiente</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <span class="service-text">Resolución PNL</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
+                        </div>
+                        <span class="service-text">Sana Convivencia</span>
+                    </div>
                 </div>
 
-                <!-- 5. MODULO: SERVICIOS RESUMIDOS (PÍLDORAS DE CREDIBILIDAD) -->
-                <div class="grid grid-cols-2 gap-2 fade-in-up">
-                    <div class="bg-white/5 border border-white/10 p-2.5 rounded-xl flex items-center gap-2">
-                        <div class="w-6 h-6 bg-blue-600/20 text-blue-400 rounded-lg flex items-center justify-center text-[10px] flex-shrink-0 shadow-inner"><i class="fas fa-building"></i></div>
-                        <span class="text-[9px] font-bold text-slate-300 leading-tight">Admin. Copropiedades</span>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-2.5 rounded-xl flex items-center gap-2">
-                        <div class="w-6 h-6 bg-amber-600/20 text-amber-400 rounded-lg flex items-center justify-center text-[10px] flex-shrink-0 shadow-inner"><i class="fas fa-chart-line"></i></div>
-                        <span class="text-[9px] font-bold text-slate-300 leading-tight">Gerencia Eficiente</span>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-2.5 rounded-xl flex items-center gap-2">
-                        <div class="w-6 h-6 bg-purple-600/20 text-purple-400 rounded-lg flex items-center justify-center text-[10px] flex-shrink-0 shadow-inner"><i class="fas fa-brain"></i></div>
-                        <span class="text-[9px] font-bold text-slate-300 leading-tight">Resolución PNL</span>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-2.5 rounded-xl flex items-center gap-2">
-                        <div class="w-6 h-6 bg-emerald-600/20 text-emerald-400 rounded-lg flex items-center justify-center text-[10px] flex-shrink-0 shadow-inner"><i class="fas fa-scale-balanced"></i></div>
-                        <span class="text-[9px] font-bold text-slate-300 leading-tight">Sana Convivencia</span>
-                    </div>
-                </div>
+                <a href="tel:+573054855538" class="btn-phone">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Llamar Directo: 305 4855538
+                </a>
 
-                <!-- CANALES DIRECTOS -->
-                <div class="grid grid-cols-2 gap-2 fade-in-up">
-                    <a href="tel:+573054855538" class="bg-slate-800/80 border border-white/5 py-2.5 px-2 rounded-xl flex items-center justify-center gap-1.5 text-[10px] font-bold text-white transition-all active:scale-95">
-                        <i class="fas fa-phone text-blue-400"></i> Llamar Directo
-                    </a>
-                    <a href="mailto:deicy.buitrago@example.com" class="bg-slate-800/80 border border-white/5 py-2.5 px-2 rounded-xl flex items-center justify-center gap-1.5 text-[10px] font-bold text-white transition-all active:scale-95">
-                        <i class="fas fa-envelope text-blue-400"></i> Enviar Correo
-                    </a>
-                </div>
+                <button id="btn-vcard" class="btn-vcard">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f3c677" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+                    Guardar Contacto en Agenda
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Navegación Inferior & Firma de Marca -->
+        <div>
+            <div class="bottom-nav">
+                <button class="nav-item" onclick="openModal('modal-services')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    <span>Servicios</span>
+                </button>
+                <button class="nav-item" onclick="openModal('modal-gallery')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                    <span>Garantía</span>
+                </button>
+                <button class="nav-item" onclick="openModal('modal-testimonials')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <span>Opiniones</span>
+                </button>
+                <button class="nav-item" onclick="openModal('modal-coverage')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Zonas</span>
+                </button>
+                <button class="nav-item" onclick="openModal('modal-qr')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+                    <span>QR</span>
+                </button>
             </div>
             
-            <!-- 11. MODULO: CTA ACCIONES COMPLEMENTARIAS -->
-            <div class="px-5 mt-auto pt-2">
-                <button id="btn-vcard" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-wider border border-white/5 shadow-md transition-all active:scale-95">
-                    <i class="fas fa-address-card text-amber-400"></i> Guardar en Agenda
-                </button>
+            <div class="brand-footer">
+                <strong style="color: #38bdf8;">KONFÍO ZINC</strong> @TODOS LOS DERECHOS RESERVADOS
             </div>
         </div>
 
-        <!-- 4 y 12. MODULO: BARRA DE NAVEGACIÓN INFERIOR & PIE DE TARJETA -->
-        <div class="absolute bottom-0 inset-x-0 bg-slate-950 border-t border-white/5 z-20 flex flex-col">
-            <nav class="px-2 py-2 flex justify-around items-center">
-                <button id="nav-services" class="flex flex-col items-center justify-center text-slate-400 hover:text-white w-12 transition-colors">
-                    <i class="fas fa-briefcase text-sm"></i><span class="text-[8px] font-bold mt-1">Servicios</span>
-                </button>
-                <button id="nav-gallery" class="flex flex-col items-center justify-center text-slate-400 hover:text-white w-12 transition-colors">
-                    <i class="fas fa-images text-sm"></i><span class="text-[8px] font-bold mt-1">Garantía</span>
-                </button>
-                <button id="nav-testimonials" class="flex flex-col items-center justify-center text-slate-400 hover:text-white w-12 transition-colors">
-                    <i class="fas fa-comment-dots text-sm"></i><span class="text-[8px] font-bold mt-1">Opiniones</span>
-                </button>
-                <button id="nav-coverage" class="flex flex-col items-center justify-center text-slate-400 hover:text-white w-12 transition-colors">
-                    <i class="fas fa-map-location-dot text-sm"></i><span class="text-[8px] font-bold mt-1">Zonas</span>
-                </button>
-                <button id="nav-share" class="flex flex-col items-center justify-center text-slate-400 hover:text-white w-12 transition-colors">
-                    <i class="fas fa-qrcode text-sm"></i><span class="text-[8px] font-bold mt-1">QR</span>
-                </button>
-            </nav>
-            <!-- SELLO OFICIAL DE MARCA MANDATORIO V2.0 -->
-            <div class="text-center text-[7px] tracking-widest text-slate-600 font-semibold bg-slate-950 pb-1.5 uppercase">
-                Creado por KONFÍO ZINC — Todos los derechos reservados
+        <!-- MODALES -->
+        <div id="modal-services" class="modal-overlay" onclick="closeModal('modal-services')">
+            <div class="modal-box" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <span>Portafolio de Servicios</span>
+                    <button class="modal-close" onclick="closeModal('modal-services')">✕</button>
+                </div>
+                <div style="padding: 16px; font-size: 11px; line-height: 1.5; color: #cbd5e1;">
+                    <strong style="color: #60a5fa; font-size: 12px;">Administración de Propiedad Horizontal</strong><br/>
+                    Gestión integral de copropiedades residenciales y comerciales con transparencia absoluta y optimización presupuestal.<br/><br/>
+                    <strong style="color: #60a5fa; font-size: 12px;">Gerencia y Control Financiero</strong><br/>
+                    Dirección estratégica con enfoque corporativo para la mitigación de carteras morosas y auditoría interna.<br/><br/>
+                    <strong style="color: #60a5fa; font-size: 12px;">Mediación Estratégica con PNL</strong><br/>
+                    Herramientas de Programación Neurolingüística para resolver conflictos comunitarios de manera asertiva.
+                </div>
             </div>
         </div>
+
+        <div id="modal-gallery" class="modal-overlay" onclick="closeModal('modal-gallery')">
+            <div class="modal-box" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <span>Garantía de Gestión</span>
+                    <button class="modal-close" onclick="closeModal('modal-gallery')">✕</button>
+                </div>
+                <div style="padding: 16px; text-align: center; color: #cbd5e1; font-size: 11px;">
+                    <strong style="color: #f3c677; font-size: 13px;">Estándar de Transparencia</strong><br/><br/>
+                    Informes mensuales digitalizados, rendición de cuentas clara y trazabilidad completa de fondos bajo estándares corporativos.
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-testimonials" class="modal-overlay" onclick="closeModal('modal-testimonials')">
+            <div class="modal-box" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <span>Opiniones de Consejos</span>
+                    <button class="modal-close" onclick="closeModal('modal-testimonials')">✕</button>
+                </div>
+                <div style="padding: 16px; font-size: 11px; line-height: 1.5; color: #cbd5e1;">
+                    <em>"Excelente control administrativo y financiero. Logró sanear la cartera morosa en menos de 6 meses."</em><br/>
+                    <strong style="color: #60a5fa;">— Presidente de Consejo</strong><br/><br/>
+                    <em>"Su enfoque en PNL marca totalmente la diferencia al manejar asambleas difíciles."</em><br/>
+                    <strong style="color: #60a5fa;">— Comité de Convivencia</strong>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-coverage" class="modal-overlay" onclick="closeModal('modal-coverage')">
+            <div class="modal-box" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <span>Zonas de Cobertura</span>
+                    <button class="modal-close" onclick="closeModal('modal-coverage')">✕</button>
+                </div>
+                <div style="padding: 16px; font-size: 11px; color: #cbd5e1; line-height: 1.5; text-align: center;">
+                    <strong style="color: #60a5fa;">Atención Nacional e Internacional</strong><br/><br/>
+                    Servicios de consultoría externa y administración delegada con base en Colombia (+57).
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-qr" class="modal-overlay" onclick="closeModal('modal-qr')">
+            <div class="modal-box" onclick="event.stopPropagation()" style="text-align: center; padding: 16px;">
+                <div class="modal-header" style="margin: -16px -16px 16px -16px;">
+                    <span>Compartir Tarjeta</span>
+                    <button class="modal-close" onclick="closeModal('modal-qr')">✕</button>
+                </div>
+                <div id="qrcode" style="display: flex; justify-content: center; background: white; padding: 10px; border-radius: 12px; width: fit-content; margin: 0 auto;"></div>
+                <p style="font-size: 10px; color: #94a3b8; margin-top: 10px;">Escanea este código desde otro celular para abrir al instante la tarjeta digital.</p>
+            </div>
+        </div>
+
+        <div id="toast" class="toast">Contacto guardado en agenda</div>
+
     </div>
-
-    <!-- ELEMENTOS EMERGENTES MODULARES -->
-    <div id="modal-services" class="modal-overlay">
-        <div class="modal-content overflow-hidden">
-            <div class="p-4 bg-slate-800 text-white font-bold text-xs uppercase flex justify-between items-center border-b border-white/5">
-                <span class="tracking-wider"><i class="fas fa-briefcase mr-1.5 text-blue-400"></i> Portafolio de Servicios</span>
-                <button class="close-modal text-lg font-light hover:text-slate-300">&times;</button>
-            </div>
-            <div class="p-4 max-h-[55vh] overflow-y-auto space-y-3.5 text-slate-300 text-xs">
-                <div class="bg-white/5 p-3 rounded-xl border border-white/5">
-                    <h4 class="font-bold text-white text-[13px] mb-1">Administración de Propiedad Horizontal</h4>
-                    <p class="text-slate-400 leading-relaxed text-[11px]">Gestión integral de copropiedades residenciales y comerciales con transparencia absoluta, optimización de presupuestos y mantenimiento preventivo de infraestructura.</p>
-                </div>
-                <div class="bg-white/5 p-3 rounded-xl border border-white/5">
-                    <h4 class="font-bold text-white text-[13px] mb-1">Gerencia y Control Financiero</h4>
-                    <p class="text-slate-400 leading-relaxed text-[11px]">Dirección estratégica con enfoque corporativo para la mitigación de carteras morosas, auditoría interna de recursos y valorización del patrimonio inmobiliario.</p>
-                </div>
-                <div class="bg-white/5 p-3 rounded-xl border border-white/5">
-                    <h4 class="font-bold text-white text-[13px] mb-1">Mediación Estratégica con PNL</h4>
-                    <p class="text-slate-400 leading-relaxed text-[11px]">Aplicación de herramientas avanzadas de Programación Neurolingüística (PNL) para resolver conflictos comunitarios y mejorar la convivencia vecinal de manera asertiva.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-gallery" class="modal-overlay">
-        <div class="modal-content overflow-hidden">
-            <div class="p-4 bg-slate-800 text-white font-bold text-xs uppercase flex justify-between items-center border-b border-white/5">
-                <span class="tracking-wider"><i class="fas fa-images mr-1.5 text-blue-400"></i> Evidencia de Gestión</span>
-                <button class="close-modal text-lg font-light hover:text-slate-300">&times;</button>
-            </div>
-            <div class="p-4">
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center text-slate-400 text-xs">
-                    <i class="fas fa-shield-halved text-3xl text-amber-400 mb-2 block"></i>
-                    <p class="font-bold text-white text-[12px] mb-1">Estándar de Transparencia</p>
-                    <p class="text-[11px] leading-relaxed">Informes mensuales digitalizados, rendición de cuentas clara y trazabilidad completa de fondos bajo estándares corporativos.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-testimonials" class="modal-overlay">
-        <div class="modal-content overflow-hidden">
-            <div class="p-4 bg-slate-800 text-white font-bold text-xs uppercase flex justify-between items-center border-b border-white/5">
-                <span class="tracking-wider"><i class="fas fa-comment-dots mr-1.5 text-blue-400"></i> Opiniones de Consejos</span>
-                <button class="close-modal text-lg font-light hover:text-slate-300">&times;</button>
-            </div>
-            <div class="p-4 max-h-[55vh] overflow-y-auto space-y-3 text-slate-300 text-xs">
-                <div class="bg-white/5 p-3 rounded-xl border border-white/5 italic relative">
-                    <p class="text-[11px] leading-relaxed">"Excelente control administrativo y financiero. Logró sanear la cartera morosa del conjunto en menos de 6 meses."</p>
-                    <span class="block text-right font-semibold text-blue-400 mt-2 text-[10px] not-italic">— Presidente de Consejo, Conjunto Residencial</span>
-                </div>
-                <div class="bg-white/5 p-3 rounded-xl border border-white/5 italic relative">
-                    <p class="text-[11px] leading-relaxed">"Su enfoque en PNL marca totalmente la diferencia al manejar asambleas difíciles. Muy recomendada."</p>
-                    <span class="block text-right font-semibold text-blue-400 mt-2 text-[10px] not-italic">— Miembro del Comité de Convivencia</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-coverage" class="modal-overlay">
-        <div class="modal-content overflow-hidden">
-            <div class="p-4 bg-slate-800 text-white font-bold text-xs uppercase flex justify-between items-center border-b border-white/5">
-                <span class="tracking-wider"><i class="fas fa-map-location-dot mr-1.5 text-blue-400"></i> Zonas de Cobertura</span>
-                <button class="close-modal text-lg font-light hover:text-slate-300">&times;</button>
-            </div>
-            <div class="p-4 text-slate-300 text-xs">
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
-                    <i class="fas fa-location-dot text-2xl text-blue-400 mb-2 block"></i>
-                    <p class="font-bold text-white text-[12px] mb-1">Atención Nacional e Internacional</p>
-                    <p class="text-[11px] text-slate-400 mb-3">Servicios de consultoría externa y administración delegada basados en:</p>
-                    <span class="inline-block bg-blue-900/40 text-blue-300 text-[10px] font-bold px-3 py-1 rounded-full border border-blue-800/50">Colombia (+57)</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-qr" class="modal-overlay">
-        <div class="modal-content overflow-hidden">
-            <div class="p-4 bg-slate-800 text-white font-bold text-xs uppercase flex justify-between items-center border-b border-white/5">
-                <span class="tracking-wider"><i class="fas fa-qrcode mr-1.5 text-blue-400"></i> Compartir Tarjeta</span>
-                <button class="close-modal text-lg font-light hover:text-slate-300">&times;</button>
-            </div>
-            <div class="p-6 text-center bg-slate-900">
-                <div id="qrcode" class="p-3 bg-white rounded-2xl inline-block shadow-2xl border-2 border-slate-700"></div>
-                <p class="text-[10px] text-slate-400 mt-3 tracking-wide px-4">Escanea este código desde otro móvil para guardar instantáneamente el perfil profesional.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="toast" id="toast"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Remoción de Splash Screen
-            setTimeout(() => { 
-                const s = document.getElementById('splash'); 
-                if(s) { 
-                    s.style.opacity = '0'; 
-                    setTimeout(() => s.style.display = 'none', 400); 
-                } 
-            }, 1200);
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-            // Controlador de Modales Modularizado
-            const setupModal = (targetId, modalId) => {
-                const trigger = document.getElementById(targetId); 
-                const modal = document.getElementById(modalId); 
-                if (!trigger || !modal) return;
-                
-                trigger.addEventListener('click', (e) => { 
-                    e.preventDefault(); 
-                    modal.classList.add('active'); 
+        document.addEventListener('DOMContentLoaded', () => {
+            const qrBox = document.getElementById("qrcode");
+            if(qrBox) {
+                new QRCode(qrBox, {
+                    text: window.location.href,
+                    width: 130,
+                    height: 130,
+                    colorDark : "#1e3a8a",
+                    colorLight : "#ffffff"
                 });
-                
-                modal.querySelector('.close-modal').addEventListener('click', () => modal.classList.remove('active'));
-                modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+            }
+
+            const toast = document.getElementById('toast');
+            const showToast = (msg) => {
+                toast.textContent = msg;
+                toast.style.display = 'block';
+                setTimeout(() => toast.style.display = 'none', 2200);
             };
 
-            setupModal('nav-services', 'modal-services'); 
-            setupModal('nav-gallery', 'modal-gallery'); 
-            setupModal('nav-testimonials', 'modal-testimonials'); 
-            setupModal('nav-coverage', 'modal-coverage'); 
-            setupModal('nav-share', 'modal-qr');
-
-            // Generador Dinámico de Código QR basado en Producción (GitHub Pages listo)
-            const urlReal = window.location.href;
-            const qrBox = document.getElementById("qrcode"); 
-            if(qrBox) { 
-                new QRCode(qrBox, { 
-                    text: urlReal, 
-                    width: 140, 
-                    height: 140, 
-                    colorDark : "#0f172a", 
-                    colorLight : "#ffffff", 
-                    correctLevel : QRCode.CorrectLevel.H 
-                }); 
-            }
-
-            // Descarga de Contacto Estructurado vCard (.vcf)
-            const btnVcard = document.getElementById('btn-vcard');
-            const toast = document.getElementById('toast');
-
-            if(btnVcard) {
-                btnVcard.addEventListener('click', () => {
-                    const vcardData = [
-                        "BEGIN:VCARD",
-                        "VERSION:3.0",
-                        "FN:Deicy Yolima Buitrago Arismendy",
-                        "ORG:Administración de Propiedad Horizontal",
-                        "TITLE:Especialista en Gerencia / PNL Practitioner",
-                        "TEL;TYPE=CELL;TYPE=PREF:+573054855538",
-                        "NOTE:Contacto guardado desde Tarjeta Digital Premium.",
-                        "END:VCARD"
-                    ].join("\r\n");
-
-                    const blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = "Deicy_Buitrago_Contacto.vcf";
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-
-                    // Toast Feedback Visual Obligatorio
-                    if(toast) {
-                        toast.innerText = "¡Tarjeta de contacto descargada!";
-                        toast.classList.add('show');
-                        setTimeout(() => toast.classList.remove('show'), 2500);
-                    }
-                });
-            }
+            document.getElementById('btn-vcard').addEventListener('click', () => {
+                const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Deicy Yolima Buitrago Arismendy\nORG:Administración de Propiedad Horizontal\nTITLE:Especialista en Gerencia / PNL Practitioner\nTEL;TYPE=CELL:+573054855538\nNOTE:Administración integral de copropiedades y mediación PNL.\nEND:VCARD`;
+                const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Deicy_Buitrago_Contacto.vcf';
+                a.click();
+                URL.revokeObjectURL(url);
+                showToast('Contacto guardado en agenda');
+            });
         });
     </script>
 </body>
