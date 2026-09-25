@@ -1,0 +1,98 @@
+[
+  {
+    "id": "pagos",
+    "icono": "💳",
+    "titulo": "Pagos a proveedores",
+    "descripcion": "Ciclos de pago, requisitos y envío de facturas para proveedores de la copropiedad.",
+    "puntos": [
+      "Ciclos de pago establecidos por administración",
+      "Requisitos para radicar facturas y soportes",
+      "Envío de facturas al correo de administración",
+      "Seguimiento del estado de pago"
+    ]
+  },
+  {
+    "id": "remodelaciones",
+    "icono": "🔨",
+    "titulo": "Remodelaciones o reformas",
+    "descripcion": "Normas internas, permisos y depósitos para realizar obras dentro de las unidades.",
+    "puntos": [
+      "Normas internas de la copropiedad",
+      "Permisos y autorización previa de administración",
+      "Depósito de garantía según el tipo de obra",
+      "Horarios permitidos para trabajos"
+    ]
+  },
+  {
+    "id": "trasteos",
+    "icono": "📦",
+    "titulo": "Trasteos y mudanzas",
+    "descripcion": "Horarios, depósito y requisitos para realizar mudanzas en la copropiedad.",
+    "puntos": [
+      "Horarios autorizados para mudanzas",
+      "Depósito de garantía (10 SMDLV)",
+      "Reserva del ascensor de carga",
+      "Notificación previa a administración"
+    ]
+  },
+  {
+    "id": "documentos",
+    "icono": "📄",
+    "titulo": "Solicitud de documentos",
+    "descripcion": "Paz y salvo, certificados, facturas y cobros para propietarios y residentes.",
+    "puntos": [
+      "Paz y salvo",
+      "Certificados",
+      "Facturas y cobros",
+      "Entrega en 3 días hábiles"
+    ]
+  },
+  {
+    "id": "salon",
+    "icono": "🎉",
+    "titulo": "Reserva salón social",
+    "descripcion": "Reserva del salón social a través del portal Aplicamos.",
+    "puntos": [
+      "Reserva por el portal Aplicamos",
+      "Disponibilidad y tarifas",
+      "Reglas de uso del salón",
+      "Depósito y entrega del espacio"
+    ]
+  },
+  {
+    "id": "escombros",
+    "icono": "🗑️",
+    "titulo": "Línea amiga escombros",
+    "descripcion": "Recolección de residuos voluminosos y especiales por la línea amiga.",
+    "puntos": [
+      "Colchones",
+      "Muebles",
+      "Madera e icopor",
+      "Escombros y residuos especiales"
+    ]
+  },
+  {
+    "id": "canales",
+    "icono": "📢",
+    "titulo": "Canales de atención",
+    "descripcion": "Todas las formas de contactar a la administración y autogestionar trámites.",
+    "puntos": [
+      "WhatsApp administración",
+      "Llamada y línea fija",
+      "Correo electrónico",
+      "Autogestión por el portal Aplicamos"
+    ]
+  },
+  {
+    "id": "mudanza",
+    "icono": "⚠️",
+    "titulo": "Notificación de mudanza",
+    "descripcion": "Requisitos, depósitos y horarios para notificar una mudanza a administración.",
+    "puntos": [
+      "Notificar a administración con anticipación",
+      "Requisitos y documentos",
+      "Depósitos y horarios",
+      "Coordinación de accesos"
+    ]
+  }
+]

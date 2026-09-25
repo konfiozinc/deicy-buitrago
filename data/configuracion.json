@@ -1,0 +1,32 @@
+{
+  "nombre": "Deicy Yolima Buitrago Arismendy",
+  "cargo": "Administradora – Propiedad Horizontal",
+  "credenciales": "Especialista en Gerencia · PNL Practitioner",
+  "lema": "Compromiso, gestión y servicio para tu comunidad",
+  "telefono": "3054855538",
+  "whatsapp": "573054855538",
+  "fijo": "6044445636",
+  "whatsappEscombros": "573044037188",
+  "email": "administracion@deicybuitrago.com",
+  "logo": "assets/logo/logo-deicy.png",
+  "portal": {
+    "nombre": "Aplicamos",
+    "descripcion": "Portal de autogestión para residentes",
+    "nota": "Usuario y contraseña son el correo al que llega la factura",
+    "url": "https://portal.aplicamos.co/login"
+  },
+  "horario": {
+    "dias": "Lunes a viernes",
+    "hora": "9:00 a.m. – 6:00 p.m.",
+    "nota": "Sábados, domingos y festivos sin atención administrativa",
+    "portal": "Portal Aplicamos: 24/7",
+    "porteria": "Portería emergencias: 24/7"
+  },
+  "emergencias": {
+    "titulo": "Emergencias – Portería 24/7",
+    "descripcion": "Para situaciones de emergencia comuníquese con la portería, disponible las 24 horas.",
+    "nota": "No esperar respuesta por canales administrativos fuera de horario."
+  },
+  "marca": "KONFÍO ZINC",
+  "konfioUrl": "https://konfiozinc.github.io"
+}

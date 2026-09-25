@@ -1,227 +1,445 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-    <meta name="theme-color" content="#1e3a8a"/>
-    <title>Deicy Yolima Buitrago Arismendy - Tarjeta Digital Pro</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deicy Buitrago · Administradora Propiedad Horizontal</title>
+<meta name="description" content="Tarjeta digital de Deicy Yolima Buitrago Arismendy, administradora de propiedad horizontal. Canales de atención, trámites, horarios y portal de autogestión.">
+<meta name="theme-color" content="#1A2B5C">
+<meta property="og:title" content="Deicy Buitrago · Administradora Propiedad Horizontal">
+<meta property="og:description" content="Compromiso, gestión y servicio para tu comunidad. Canales de atención y trámites.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="assets/logo/logo-deicy.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="assets/logo/icon-192.png">
+<link rel="apple-touch-icon" href="assets/logo/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#1A2B5C;
+  --azul-osc:#0F1828;
+  --morado:#6B4E9E;
+  --dorado:#C9A84C;
+  --dorado-suave:#E8D9A8;
+  --fondo:#FAFBFF;
+  --fondo-suave:#F1F4FB;
+  --texto:#1A2B5C;
+  --texto-sec:#6B7280;
+  --blanco:#ffffff;
+  --rojo:#C0392B;
+  --borde:#E3E8F2;
+  --radio:18px;
+  --sombra:0 10px 30px rgba(26,43,92,.10);
+  --t-titulo:'Playfair Display',serif;
+  --t-cuerpo:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--t-cuerpo);background:var(--fondo);color:var(--texto);line-height:1.55;display:flex;justify-content:center}
+button{font-family:var(--t-cuerpo)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--morado);outline-offset:2px;border-radius:6px}
+.contenedor{width:100%;max-width:520px;min-height:100vh;background:var(--fondo)}
 
-    <!-- Script de QR dinámico autónomo -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;text-align:center;padding:34px 22px 26px;background:linear-gradient(160deg,#22366e 0%,var(--azul) 45%,#141f3e 100%);color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,rgba(107,78,158,.45),transparent 45%),radial-gradient(circle at 85% 85%,rgba(201,168,76,.25),transparent 45%)}
+.hero *{position:relative}
+.logo-hero{width:116px;height:116px;border-radius:28px;object-fit:contain;background:#fff;padding:8px;border:3px solid var(--dorado);box-shadow:0 0 0 6px rgba(201,168,76,.22),0 14px 34px rgba(0,0,0,.35)}
+.nombre{font-family:var(--t-titulo);font-size:1.85rem;font-weight:700;margin-top:16px;line-height:1.15}
+.cargo{font-size:.95rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dorado-suave);margin-top:8px}
+.credenciales{font-size:.85rem;color:#dbe3f2;margin-top:5px}
+.lema{font-family:var(--t-titulo);font-style:italic;font-size:.98rem;color:#e9edf7;margin-top:12px;padding:0 6px}
+.sep{width:70px;height:3px;background:linear-gradient(90deg,var(--dorado),transparent);margin:16px auto 0;border-radius:3px}
 
-    
-<link rel="stylesheet" href="styles.css">
+/* ── ACCIONES ── */
+.acciones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px 16px 6px}
+.accion{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;background:none;border:none}
+.icono-accion{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--fondo-suave);border:1.5px solid rgba(26,43,92,.18);color:var(--azul);transition:transform .2s,box-shadow .2s,border-color .2s;box-shadow:0 4px 12px rgba(26,43,92,.08)}
+.icono-accion svg{width:26px;height:26px}
+.accion:hover .icono-accion{transform:translateY(-3px);border-color:var(--dorado);box-shadow:0 10px 22px rgba(26,43,92,.16)}
+.accion-label{font-size:.68rem;font-weight:600;letter-spacing:.03em;text-align:center;color:var(--texto-sec);text-transform:uppercase}
 
+/* ── SECCIONES ── */
+.seccion{padding:26px 20px 0}
+.titulo-seccion{font-family:var(--t-titulo);font-size:1.3rem;font-weight:700;color:var(--azul);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.titulo-seccion::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--dorado),transparent)}
 
+/* Servicios */
+.grid-servicios{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.servicio{display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:#fff;border:1px solid var(--borde);border-radius:var(--radio);padding:14px;cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;text-align:left}
+.servicio:hover{transform:translateY(-3px);box-shadow:var(--sombra);border-color:var(--dorado)}
+.servicio-icono{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--azul),var(--morado));display:flex;align-items:center;justify-content:center;font-size:20px}
+.servicio h3{font-size:.86rem;font-weight:700;color:var(--azul);line-height:1.3}
+.servicio .flecha{margin-left:auto;color:var(--dorado);font-size:1rem}
+
+/* Tarjeta horario */
+.tarjeta-info{background:#fff;border:1px solid var(--borde);border-left:4px solid var(--dorado);border-radius:var(--radio);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.tarjeta-info .icono{font-size:1.5rem;line-height:1}
+.tarjeta-info h4{font-size:.95rem;color:var(--azul);margin-bottom:6px}
+.tarjeta-info ul{list-style:none}
+.tarjeta-info li{font-size:.85rem;color:var(--texto-sec);padding:3px 0}
+.boton{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--azul),var(--morado));color:#fff;border:none;padding:12px 18px;border-radius:30px;font-weight:600;font-size:.9rem;cursor:pointer;box-shadow:0 6px 16px rgba(26,43,92,.25);transition:transform .18s,box-shadow .18s}
+.boton:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,43,92,.35)}
+.boton-dorado{background:linear-gradient(135deg,var(--dorado),#b8953a);color:#231a04}
+
+/* Galería */
+.grid-galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.item-galeria{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--borde);background:#fff;cursor:pointer;aspect-ratio:3/4;transition:transform .18s,box-shadow .18s}
+.item-galeria:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.item-galeria img{width:100%;height:100%;object-fit:cover;display:block}
+.item-galeria .pie{position:absolute;left:0;right:0;bottom:0;padding:18px 6px 6px;background:linear-gradient(transparent,rgba(15,24,40,.88));color:#fff;font-size:.6rem;font-weight:600;text-align:center;letter-spacing:.04em}
+
+/* Portal Aplicamos */
+.portal{background:linear-gradient(150deg,#fff 0%,var(--fondo-suave) 100%);border:1px solid var(--borde);border-radius:var(--radio);padding:20px;text-align:center}
+.portal .marca{font-family:var(--t-titulo);font-size:1.3rem;font-weight:700;color:var(--azul)}
+.portal .pasos{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.paso{background:#fff;border:1px solid var(--borde);border-radius:30px;padding:6px 12px;font-size:.76rem;font-weight:600;color:var(--azul)}
+.portal .nota{font-size:.78rem;color:var(--texto-sec);margin-top:10px}
+
+/* Emergencias */
+.emergencia{background:#FFF4F2;border:1px solid #F3D6D1;border-left:5px solid var(--rojo);border-radius:var(--radio);padding:16px 18px}
+.emergencia h3{color:var(--rojo);font-size:1rem;margin-bottom:8px}
+.emergencia p{font-size:.85rem;color:#5b4a47}
+.emergencia .nota{margin-top:8px;font-size:.76rem;font-style:italic}
+
+/* Footer */
+.footer{text-align:center;padding:26px 20px 30px;margin-top:24px;background:var(--azul-osc);color:#cdd6ea}
+.footer .nombre{font-family:var(--t-titulo);font-size:1.05rem;color:#fff}
+.footer .cargo{font-size:.8rem;color:#aab6d2}
+.footer .frase{font-style:italic;font-size:.85rem;color:var(--dorado-suave);margin:8px 0}
+.footer .copy{font-size:.72rem;color:#7e8cb0;margin-top:8px}
+.footer .konfio{font-size:.72rem;color:rgba(201,168,76,.75);margin-top:8px;letter-spacing:.12em;text-transform:uppercase}
+.footer .konfio a{color:var(--dorado)}
+.btn-vcard{display:inline-block;margin-top:10px;background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;padding:8px 16px;border-radius:30px;font-size:.78rem;cursor:pointer}
+
+/* WhatsApp flotante */
+.wa{position:fixed;right:16px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45)}
+.wa svg{width:30px;height:30px;fill:#fff}
+.wa::before,.wa::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,211,102,.6);animation:anillo 2.2s ease-out infinite}
+.wa::after{animation-delay:1.1s;border-color:rgba(37,211,102,.4)}
+@keyframes anillo{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.8);opacity:0}}
+
+/* ── MODAL ── */
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(10,16,32,.72);display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.overlay.activo{display:flex}
+.sheet{width:100%;max-width:520px;max-height:86vh;overflow-y:auto;background:#fff;border-top:3px solid var(--dorado);border-radius:22px 22px 0 0;padding:20px 20px 34px;animation:subir .3s ease}
+@keyframes subir{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.sheet .cerrar{margin-left:auto;display:block;background:var(--fondo-suave);border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;color:var(--texto-sec)}
+.sheet .modal-icono{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--azul),var(--morado));display:flex;align-items:center;justify-content:center;font-size:26px}
+.sheet h3{font-family:var(--t-titulo);font-size:1.25rem;color:var(--azul);margin:10px 0 6px}
+.sheet .desc{font-size:.9rem;color:var(--texto-sec)}
+.sheet .puntos{margin:12px 0 16px;list-style:none}
+.sheet .puntos li{position:relative;padding:6px 0 6px 20px;font-size:.88rem;color:var(--texto)}
+.sheet .puntos li::before{content:"◆";position:absolute;left:0;color:var(--dorado);font-size:.7rem;top:9px}
+.sheet .imagen-grande{width:100%;border-radius:14px;border:1px solid var(--borde)}
+.sheet .sub-galeria{font-size:.82rem;color:var(--texto-sec);margin-top:8px}
+
+@media(min-width:768px){
+  .overlay{align-items:center;padding:20px}
+  .sheet{border-radius:22px;border:1px solid var(--borde)}
+  .acciones{grid-template-columns:repeat(6,1fr)}
+  .grid-servicios{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:640px){
+  .grid-galeria{grid-template-columns:repeat(2,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
 </head>
 <body>
+<div class="contenedor">
 
-    <div class="card-container">
-        <div>
-            <!-- Header -->
-            <div class="card-header">
-                <span class="badge-status">Gestión de Éxito</span>
-                
-                <h1 class="title-main">Deicy Yolima Buitrago Arismendy</h1>
-                <div class="title-sub">Administradora de Propiedad Horizontal</div>
+  <!-- HERO -->
+  <header class="hero">
+    <img class="logo-hero" src="assets/logo/logo-deicy.png" alt="Logo de Deicy Buitrago" decoding="async"
+         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231A2B5C%22/%3E%3Ctext x=%22100%22 y=%22110%22 font-size=%2250%22 font-family=%22Georgia%22 fill=%22%23C9A84C%22 text-anchor=%22middle%22 font-weight=%22bold%22%3EDB%3C/text%3E%3C/svg%3E'">
+    <h1 class="nombre" id="c-nombre">Deicy Yolima Buitrago Arismendy</h1>
+    <p class="cargo" id="c-cargo">Administradora · Propiedad Horizontal</p>
+    <p class="credenciales" id="c-credenciales">Especialista en Gerencia · PNL Practitioner</p>
+    <p class="lema" id="c-lema">“Compromiso, gestión y servicio para tu comunidad”</p>
+    <div class="sep"></div>
+  </header>
 
-                <!-- Isotipo Vectorial Edificio Copropiedad (Replica fiel autocontenida) -->
-                <div class="avatar-building">
-                    <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
-                        <circle cx="100" cy="100" r="94" fill="none" stroke="#1e3a8a" stroke-width="1.5"/>
-                        <circle cx="100" cy="100" r="90" fill="none" stroke="#1e3a8a" stroke-width="0.5" stroke-dasharray="4,2"/>
-                        <g fill="#1e3a8a">
-                            <!-- Edificio Izquierdo -->
-                            <rect x="55" y="85" width="25" height="50"/>
-                            <!-- Ventanas Edificio Izquierdo -->
-                            <g fill="#ffffff">
-                                <rect x="60" y="90" width="4" height="6"/><rect x="71" y="90" width="4" height="6"/>
-                                <rect x="60" y="101" width="4" height="6"/><rect x="71" y="101" width="4" height="6"/>
-                                <rect x="60" y="112" width="4" height="6"/><rect x="71" y="112" width="4" height="6"/>
-                                <rect x="60" y="123" width="4" height="6"/><rect x="71" y="123" width="4" height="6"/>
-                            </g>
-                            <!-- Edificio Central -->
-                            <path d="M 95 45 L 120 53 L 120 125 L 95 120 Z"/>
-                            <!-- Ventanas Centrales -->
-                            <g fill="#ffffff">
-                                <path d="M 100 56 L 106 58 L 106 64 L 100 62 Z"/><path d="M 110 59 L 116 61 L 116 67 L 110 65 Z"/>
-                                <path d="M 100 67 L 106 69 L 106 75 L 100 73 Z"/><path d="M 110 70 L 116 72 L 116 78 L 110 76 Z"/>
-                                <path d="M 100 78 L 106 80 L 106 86 L 100 84 Z"/><path d="M 110 81 L 116 83 L 116 89 L 110 87 Z"/>
-                                <path d="M 100 89 L 106 91 L 106 97 L 100 95 Z"/><path d="M 110 92 L 116 94 L 116 100 L 110 98 Z"/>
-                                <path d="M 100 100 L 106 102 L 106 108 L 100 106 Z"/><path d="M 110 103 L 116 105 L 116 111 L 110 109 Z"/>
-                            </g>
-                            <!-- Edificio Derecho -->
-                            <rect x="115" y="90" width="30" height="45"/>
-                            <g fill="#ffffff">
-                                <rect x="120" y="95" width="6" height="3"/><rect x="133" y="95" width="6" height="3"/>
-                                <rect x="120" y="103" width="6" height="3"/><rect x="133" y="103" width="6" height="3"/>
-                                <rect x="120" y="111" width="6" height="3"/><rect x="133" y="111" width="6" height="3"/>
-                                <rect x="120" y="119" width="6" height="3"/><rect x="133" y="119" width="6" height="3"/>
-                            </g>
-                            <path d="M 35 145 Q 100 120 165 145 Q 100 132 35 145 Z"/>
-                        </g>
-                    </svg>
-                </div>
-                
-                <div class="slogan-box">
-                    <div class="slogan-text">Especialista en Gerencia · PNL Practitioner</div>
-                </div>
-            </div>
+  <!-- ACCIONES -->
+  <nav class="acciones" aria-label="Acciones de contacto">
+    <a class="accion" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20necesito%20asesor%C3%ADa" target="_blank" rel="noopener">
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.56 4.13 1.53 5.86L.06 23.5a.5.5 0 0 0 .61.63l5.79-1.52A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 22c-1.91 0-3.7-.51-5.23-1.41l-.38-.22-3.88 1.02 1.04-3.78-.24-.39A9.96 9.96 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.47-7.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></span>
+      <span class="accion-label">WhatsApp</span>
+    </a>
+    <a class="accion" href="tel:+573054855538">
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.12-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></span>
+      <span class="accion-label">Llamar</span>
+    </a>
+    <a class="accion" href="mailto:administracion@deicybuitrago.com">
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+      <span class="accion-label">Correo</span>
+    </a>
+    <a class="accion" href="https://portal.aplicamos.co/login" target="_blank" rel="noopener">
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span>
+      <span class="accion-label">Portal</span>
+    </a>
+    <a class="accion" href="https://wa.me/573044037188?text=Hola%2C%20necesito%20recoger%20escombros" target="_blank" rel="noopener">
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></span>
+      <span class="accion-label">Escombros</span>
+    </a>
+    <button class="accion" type="button" id="btnCompartir">
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></span>
+      <span class="accion-label">Compartir</span>
+    </button>
+  </nav>
 
-            <!-- Cuerpo Interactivo -->
-            <div class="content-body">
-                
-                <a href="https://wa.me/573054855538?text=Hola%20Deicy,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20Administra%C3%B3n%20de%20Propiedad%20Horizontal." target="_blank" class="btn-whatsapp">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                    Contactar por WhatsApp
-                </a>
+  <!-- SERVICIOS -->
+  <section class="seccion" aria-labelledby="titulo-servicios">
+    <h2 class="titulo-seccion" id="titulo-servicios">Servicios y trámites</h2>
+    <div class="grid-servicios" id="gridServicios"></div>
+  </section>
 
-                <div class="grid-services">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-                        </div>
-                        <span class="service-text">Admin. Copropiedades</span>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-                        </div>
-                        <span class="service-text">Gerencia Eficiente</span>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
-                        </div>
-                        <span class="service-text">Resolución PNL</span>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
-                        </div>
-                        <span class="service-text">Sana Convivencia</span>
-                    </div>
-                </div>
-
-                <a href="tel:+573054855538" class="btn-phone">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    Llamar Directo: 305 4855538
-                </a>
-
-                <button id="btn-vcard" class="btn-vcard">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f3c677" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
-                    Guardar Contacto en Agenda
-                </button>
-
-            </div>
-        </div>
-
-        <!-- Navegación Inferior & Firma de Marca -->
-        <div>
-            <div class="bottom-nav">
-                <button class="nav-item" onclick="openModal('modal-services')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                    <span>Servicios</span>
-                </button>
-                <button class="nav-item" onclick="openModal('modal-gallery')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
-                    <span>Garantía</span>
-                </button>
-                <button class="nav-item" onclick="openModal('modal-testimonials')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span>Opiniones</span>
-                </button>
-                <button class="nav-item" onclick="openModal('modal-coverage')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <span>Zonas</span>
-                </button>
-                <button class="nav-item" onclick="openModal('modal-qr')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
-                    <span>QR</span>
-                </button>
-            </div>
-            
-            <div class="brand-footer">
-                <strong style="color: #38bdf8;">KONFÍO ZINC</strong> @TODOS LOS DERECHOS RESERVADOS
-            </div>
-        </div>
-
-        <!-- MODALES -->
-        <div id="modal-services" class="modal-overlay" onclick="closeModal('modal-services')">
-            <div class="modal-box" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <span>Portafolio de Servicios</span>
-                    <button class="modal-close" onclick="closeModal('modal-services')">✕</button>
-                </div>
-                <div style="padding: 16px; font-size: 11px; line-height: 1.5; color: #cbd5e1;">
-                    <strong style="color: #60a5fa; font-size: 12px;">Administración de Propiedad Horizontal</strong><br/>
-                    Gestión integral de copropiedades residenciales y comerciales con transparencia absoluta y optimización presupuestal.<br/><br/>
-                    <strong style="color: #60a5fa; font-size: 12px;">Gerencia y Control Financiero</strong><br/>
-                    Dirección estratégica con enfoque corporativo para la mitigación de carteras morosas y auditoría interna.<br/><br/>
-                    <strong style="color: #60a5fa; font-size: 12px;">Mediación Estratégica con PNL</strong><br/>
-                    Herramientas de Programación Neurolingüística para resolver conflictos comunitarios de manera asertiva.
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-gallery" class="modal-overlay" onclick="closeModal('modal-gallery')">
-            <div class="modal-box" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <span>Garantía de Gestión</span>
-                    <button class="modal-close" onclick="closeModal('modal-gallery')">✕</button>
-                </div>
-                <div style="padding: 16px; text-align: center; color: #cbd5e1; font-size: 11px;">
-                    <strong style="color: #f3c677; font-size: 13px;">Estándar de Transparencia</strong><br/><br/>
-                    Informes mensuales digitalizados, rendición de cuentas clara y trazabilidad completa de fondos bajo estándares corporativos.
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-testimonials" class="modal-overlay" onclick="closeModal('modal-testimonials')">
-            <div class="modal-box" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <span>Opiniones de Consejos</span>
-                    <button class="modal-close" onclick="closeModal('modal-testimonials')">✕</button>
-                </div>
-                <div style="padding: 16px; font-size: 11px; line-height: 1.5; color: #cbd5e1;">
-                    <em>"Excelente control administrativo y financiero. Logró sanear la cartera morosa en menos de 6 meses."</em><br/>
-                    <strong style="color: #60a5fa;">— Presidente de Consejo</strong><br/><br/>
-                    <em>"Su enfoque en PNL marca totalmente la diferencia al manejar asambleas difíciles."</em><br/>
-                    <strong style="color: #60a5fa;">— Comité de Convivencia</strong>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-coverage" class="modal-overlay" onclick="closeModal('modal-coverage')">
-            <div class="modal-box" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <span>Zonas de Cobertura</span>
-                    <button class="modal-close" onclick="closeModal('modal-coverage')">✕</button>
-                </div>
-                <div style="padding: 16px; font-size: 11px; color: #cbd5e1; line-height: 1.5; text-align: center;">
-                    <strong style="color: #60a5fa;">Atención Nacional e Internacional</strong><br/><br/>
-                    Servicios de consultoría externa y administración delegada con base en Colombia (+57).
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-qr" class="modal-overlay" onclick="closeModal('modal-qr')">
-            <div class="modal-box" onclick="event.stopPropagation()" style="text-align: center; padding: 16px;">
-                <div class="modal-header" style="margin: -16px -16px 16px -16px;">
-                    <span>Compartir Tarjeta</span>
-                    <button class="modal-close" onclick="closeModal('modal-qr')">✕</button>
-                </div>
-                <div id="qrcode" style="display: flex; justify-content: center; background: white; padding: 10px; border-radius: 12px; width: fit-content; margin: 0 auto;"></div>
-                <p style="font-size: 10px; color: #94a3b8; margin-top: 10px;">Escanea este código desde otro celular para abrir al instante la tarjeta digital.</p>
-            </div>
-        </div>
-
-        <div id="toast" class="toast">Contacto guardado en agenda</div>
-
+  <!-- HORARIO -->
+  <section class="seccion" aria-labelledby="titulo-horario">
+    <h2 class="titulo-seccion" id="titulo-horario">Horario de atención</h2>
+    <div class="tarjeta-info">
+      <span class="icono" aria-hidden="true">🕘</span>
+      <div>
+        <h4>Lunes a viernes · 9:00 a.m. – 6:00 p.m.</h4>
+        <ul>
+          <li>📅 Sábados, domingos y festivos: sin atención administrativa</li>
+          <li>🖥️ Portal Aplicamos: 24/7</li>
+          <li>🚨 Portería emergencias: 24/7</li>
+        </ul>
+      </div>
     </div>
+    <a class="boton" style="margin-top:12px;" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20quisiera%20agendar%20una%20cita" target="_blank" rel="noopener">📅 Agendar cita por WhatsApp</a>
+  </section>
 
-    
-<script src="scripts.js"></script>
+  <!-- GALERÍA -->
+  <section class="seccion" aria-labelledby="titulo-galeria">
+    <h2 class="titulo-seccion" id="titulo-galeria">Galería de avisos</h2>
+    <div class="grid-galeria" id="gridGaleria"></div>
+  </section>
 
+  <!-- PORTAL APLICAMOS -->
+  <section class="seccion" aria-labelledby="titulo-portal">
+    <h2 class="titulo-seccion" id="titulo-portal">Portal Aplicamos</h2>
+    <div class="portal">
+      <div class="marca">Aplicamos</div>
+      <p class="desc" style="font-size:.85rem;color:var(--texto-sec);margin-top:4px;">Portal de autogestión para residentes</p>
+      <div class="pasos">
+        <span class="paso">1 · Identifícate</span>
+        <span class="paso">2 · Elige cómo entrar</span>
+        <span class="paso">3 · Accede</span>
+      </div>
+      <a class="boton boton-dorado" href="https://portal.aplicamos.co/login" target="_blank" rel="noopener">Ir al portal ↗</a>
+      <p class="nota">🔑 Usuario y contraseña son el correo al que llega la factura.</p>
+    </div>
+  </section>
+
+  <!-- EMERGENCIAS -->
+  <section class="seccion" aria-labelledby="titulo-emergencia">
+    <div class="emergencia">
+      <h3 id="titulo-emergencia">🚨 Emergencias · Portería 24/7</h3>
+      <p>Para situaciones de emergencia comuníquese con la portería, disponible las 24 horas.</p>
+      <p class="nota">No esperar respuesta por canales administrativos fuera de horario.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="nombre">Deicy Yolima Buitrago Arismendy</div>
+    <div class="cargo">Administradora · Propiedad Horizontal</div>
+    <div class="frase">“Compromiso, gestión y servicio”</div>
+    <button class="btn-vcard" type="button" id="btnVcard">📇 Guardar contacto</button>
+    <div class="copy">© <span id="anio"></span> Deicy Buitrago · Todos los derechos reservados</div>
+    <div class="konfio">Tarjeta creada por <a href="https://konfiozinc.github.io" target="_blank" rel="noopener">KONFÍO ZINC</a></div>
+  </footer>
+
+</div>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20necesito%20asesor%C3%ADa" target="_blank" rel="noopener" aria-label="WhatsApp administración">
+  <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.56 4.13 1.53 5.86L.06 23.5a.5.5 0 0 0 .61.63l5.79-1.52A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 22c-1.91 0-3.7-.51-5.23-1.41l-.38-.22-3.88 1.02 1.04-3.78-.24-.39A9.96 9.96 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.47-7.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Detalle">
+  <div class="sheet">
+    <button class="cerrar" id="btnCerrar" type="button" aria-label="Cerrar">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+'use strict';
+// ── Datos por defecto (espejo de data/*.json; se sobreescriben si hay servidor) ──
+var CONFIG = {
+  nombre: 'Deicy Yolima Buitrago Arismendy',
+  cargo: 'Administradora · Propiedad Horizontal',
+  credenciales: 'Especialista en Gerencia · PNL Practitioner',
+  lema: 'Compromiso, gestión y servicio para tu comunidad',
+  telefono: '3054855538',
+  whatsapp: '573054855538',
+  fijo: '6044445636',
+  whatsappEscombros: '573044037188',
+  email: 'administracion@deicybuitrago.com',
+  portal: { nombre: 'Aplicamos', descripcion: 'Portal de autogestión para residentes', nota: 'Usuario y contraseña son el correo al que llega la factura', url: 'https://portal.aplicamos.co/login' },
+  horario: { dias: 'Lunes a viernes', hora: '9:00 a.m. – 6:00 p.m.', nota: 'Sábados, domingos y festivos sin atención administrativa' },
+  emergencias: { titulo: 'Emergencias · Portería 24/7', descripcion: 'Para situaciones de emergencia comuníquese con la portería, disponible las 24 horas.', nota: 'No esperar respuesta por canales administrativos fuera de horario.' },
+  marca: 'KONFÍO ZINC',
+  konfioUrl: 'https://konfiozinc.github.io'
+};
+
+var SERVICIOS = [
+  { id:'pagos', icono:'💳', titulo:'Pagos a proveedores', descripcion:'Ciclos de pago, requisitos y envío de facturas.', puntos:['Ciclos de pago','Requisitos para radicar facturas','Envío de soportes al correo','Seguimiento del estado'] },
+  { id:'remodelaciones', icono:'🔨', titulo:'Remodelaciones o reformas', descripcion:'Normas, permisos y depósitos para obras.', puntos:['Normas internas','Permisos y autorización','Depósito de garantía','Horarios permitidos'] },
+  { id:'trasteos', icono:'📦', titulo:'Trasteos y mudanzas', descripcion:'Horarios, depósito y requisitos.', puntos:['Horarios autorizados','Depósito (10 SMDLV)','Reserva de ascensor','Notificación previa'] },
+  { id:'documentos', icono:'📄', titulo:'Solicitud de documentos', descripcion:'Paz y salvo, certificados, facturas y cobros.', puntos:['Paz y salvo','Certificados','Facturas y cobros','Entrega en 3 días hábiles'] },
+  { id:'salon', icono:'🎉', titulo:'Reserva salón social', descripcion:'Reserva del salón por el portal Aplicamos.', puntos:['Reserva por Aplicamos','Disponibilidad y tarifas','Reglas de uso','Depósito y entrega'] },
+  { id:'escombros', icono:'🗑️', titulo:'Línea amiga escombros', descripcion:'Recolección de residuos voluminosos y especiales.', puntos:['Colchones','Muebles','Madera e icopor','Escombros y residuos'] },
+  { id:'canales', icono:'📢', titulo:'Canales de atención', descripcion:'Formas de contactar y autogestionar trámites.', puntos:['WhatsApp administración','Llamada y línea fija','Correo electrónico','Autogestión por Aplicamos'] },
+  { id:'mudanza', icono:'⚠️', titulo:'Notificación de mudanza', descripcion:'Requisitos, depósitos y horarios.', puntos:['Notificar con anticipación','Requisitos y documentos','Depósitos y horarios','Coordinación de accesos'] }
+];
+
+var GALERIA = [
+  { src: 'assets/galeria/aviso-02.png', titulo: 'Recordatorio de fechas de pago', descripcion: 'Ciclos de pago y documentos requeridos' },
+  { src: 'assets/galeria/aviso-03.png', titulo: 'Normas de remodelación', descripcion: 'Reglas y permisos para obras en el apartamento' },
+  { src: 'assets/galeria/aviso-04.png', titulo: 'Residuos especiales', descripcion: 'Cómo desechar colchones, muebles, madera, icopor y escombros' },
+  { src: 'assets/galeria/aviso-05.png', titulo: 'Canales de atención', descripcion: 'WhatsApp, llamadas, correo y autogestión en línea' },
+  { src: 'assets/galeria/aviso-06.png', titulo: 'Solicitud de documentos', descripcion: 'Paz y salvo, certificados, facturas y cobros (3 días hábiles)' },
+  { src: 'assets/galeria/aviso-07.png', titulo: 'Trasteos y mudanzas', descripcion: 'Requisitos, depósito 10 SMDLV y horarios autorizados' },
+  { src: 'assets/galeria/aviso-08.png', titulo: 'Reserva salón social', descripcion: 'Cómo reservar el salón social por el portal Aplicamos' },
+  { src: 'assets/galeria/aviso-09.png', titulo: 'Tutorial Aplicamos', descripcion: 'Guía paso a paso para ingresar al portal' },
+  { src: 'assets/galeria/aviso-10.png', titulo: 'Vista previa de servicios', descripcion: 'Captura del menú con dos servicios' },
+  { src: 'assets/galeria/aviso-11.png', titulo: 'Lista de servicios', descripcion: 'Captura completa de los servicios de la app' },
+  { src: 'assets/galeria/aviso-12.png', titulo: 'Banner motivacional', descripcion: '“La vida es como un espejo” · foto de Deicy' }
+];
+
+// ── Utilidades ──
+function $(id){ return document.getElementById(id); }
+function escapar(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── Carga externa (opcional, al servirse por HTTP) ──
+function cargarDatos(){
+  return Promise.all([
+    fetch('data/configuracion.json').then(r => r.ok ? r.json() : null).catch(function(){ return null; }),
+    fetch('data/servicios.json').then(r => r.ok ? r.json() : null).catch(function(){ return null; })
+  ]).then(function(res){
+    if (res[0]) CONFIG = Object.assign(CONFIG, res[0]);
+    if (Array.isArray(res[1]) && res[1].length) SERVICIOS = res[1];
+  });
+}
+
+// ── Render ──
+function renderIdentidad(){
+  $('c-nombre').textContent = CONFIG.nombre;
+  $('c-cargo').textContent = CONFIG.cargo;
+  $('c-credenciales').textContent = CONFIG.credenciales;
+  $('c-lema').textContent = '“' + CONFIG.lema + '”';
+  document.title = CONFIG.nombre.split(' ').slice(0,2).join(' ') + ' · ' + CONFIG.cargo;
+}
+function renderServicios(){
+  var cont = $('gridServicios');
+  cont.innerHTML = '';
+  SERVICIOS.forEach(function(s){
+    var btn = document.createElement('button');
+    btn.className = 'servicio';
+    btn.type = 'button';
+    btn.setAttribute('aria-haspopup','dialog');
+    btn.innerHTML = '<span class="servicio-icono" aria-hidden="true">' + s.icono + '</span>' +
+      '<h3>' + escapar(s.titulo) + '</h3>' +
+      '<span class="flecha" aria-hidden="true">›</span>';
+    btn.addEventListener('click', function(){ abrirServicio(s); });
+    cont.appendChild(btn);
+  });
+}
+function renderGaleria(){
+  var cont = $('gridGaleria');
+  cont.innerHTML = '';
+  GALERIA.forEach(function(g, i){
+    var fig = document.createElement('figure');
+    fig.className = 'item-galeria';
+    fig.tabIndex = 0;
+    fig.setAttribute('role','button');
+    fig.setAttribute('aria-label', g.titulo);
+    fig.innerHTML = '<img src="' + g.src + '" alt="' + escapar(g.titulo) + '" loading="lazy" decoding="async">' +
+      '<figcaption class="pie">' + escapar(g.titulo) + '</figcaption>';
+    fig.addEventListener('click', function(){ abrirGaleria(g); });
+    fig.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrirGaleria(g); } });
+    cont.appendChild(fig);
+  });
+}
+
+// ── Modal ──
+function abrirServicio(s){
+  var msg = 'Hola Deicy, necesito información sobre ' + s.titulo;
+  var puntos = s.puntos.map(function(p){ return '<li>' + escapar(p) + '</li>'; }).join('');
+  $('modalBody').innerHTML =
+    '<div class="modal-icono" aria-hidden="true">' + s.icono + '</div>' +
+    '<h3>' + escapar(s.titulo) + '</h3>' +
+    '<p class="desc">' + escapar(s.descripcion) + '</p>' +
+    '<ul class="puntos">' + puntos + '</ul>' +
+    '<a class="boton" href="https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">Consultar por WhatsApp</a>';
+  $('overlay').classList.add('activo');
+  document.body.style.overflow = 'hidden';
+  $('btnCerrar').focus();
+}
+function abrirGaleria(g){
+  $('modalBody').innerHTML =
+    '<img class="imagen-grande" src="' + g.src + '" alt="' + escapar(g.titulo) + '">' +
+    '<h3>' + escapar(g.titulo) + '</h3>' +
+    '<p class="sub-galeria">' + escapar(g.descripcion) + '</p>';
+  $('overlay').classList.add('activo');
+  document.body.style.overflow = 'hidden';
+  $('btnCerrar').focus();
+}
+function cerrarModal(){
+  $('overlay').classList.remove('activo');
+  document.body.style.overflow = '';
+}
+
+// ── Compartir / vCard ──
+function compartir(){
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: CONFIG.nombre + ' · ' + CONFIG.cargo, text: CONFIG.lema, url: url }).catch(function(){});
+  } else {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function(){ alert('✅ Enlace copiado'); }).catch(function(){ prompt('Copia el enlace:', url); });
+    } else { prompt('Copia el enlace:', url); }
+  }
+}
+function guardarContacto(){
+  var v = 'BEGIN:VCARD\nVERSION:3.0\nFN:' + CONFIG.nombre + '\nN:Buitrago Arismendy;Deicy Yolima;;;\nTITLE:' + CONFIG.cargo + '\nTEL;TYPE=CELL,VOICE:+57' + CONFIG.telefono + '\nTEL;TYPE=WORK,VOICE:+57' + CONFIG.fijo + '\nEMAIL:' + CONFIG.email + '\nURL:' + CONFIG.portal.url + '\nNOTE:' + CONFIG.lema + '\nEND:VCARD';
+  var blob = new Blob([v], { type:'text/vcard;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'Deicy_Buitrago.vcf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1200);
+}
+
+// ── Eventos ──
+document.addEventListener('DOMContentLoaded', function(){
+  $('btnCompartir').addEventListener('click', compartir);
+  $('btnVcard').addEventListener('click', guardarContacto);
+  $('btnCerrar').addEventListener('click', cerrarModal);
+  $('overlay').addEventListener('click', function(e){ if (e.target === this) cerrarModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarModal(); });
+  $('anio').textContent = new Date().getFullYear();
+
+  renderIdentidad();
+  renderServicios();
+  renderGaleria();
+  cargarDatos().then(function(){ renderIdentidad(); renderServicios(); });
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('service-worker.js').catch(function(){}); });
+  }
+});
+</script>
 </body>
 </html>
