@@ -4,12 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Deicy Buitrago · Administradora Propiedad Horizontal</title>
-<meta name="description" content="Tarjeta digital de Deicy Yolima Buitrago Arismendy, administradora de propiedad horizontal. Canales de atención, trámites, horarios y portal de autogestión.">
+<meta name="description" content="Tarjeta digital de Deicy Yolima Buitrago Arismendy, administradora de propiedad horizontal. Contacto, trámites y portal de autogestión.">
 <meta name="theme-color" content="#1A2B5C">
+<link rel="canonical" href="https://konfiozinc.github.io/deicy-buitrago/">
 <meta property="og:title" content="Deicy Buitrago · Administradora Propiedad Horizontal">
-<meta property="og:description" content="Compromiso, gestión y servicio para tu comunidad. Canales de atención y trámites.">
+<meta property="og:description" content="Compromiso, gestión y servicio para tu comunidad.">
 <meta property="og:type" content="profile">
-<meta property="og:image" content="assets/logo/logo-deicy.png">
+<meta property="og:image" content="https://konfiozinc.github.io/deicy-buitrago/assets/logo/logo-deicy.png">
+<meta property="og:url" content="https://konfiozinc.github.io/deicy-buitrago/">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="assets/logo/icon-192.png">
 <link rel="apple-touch-icon" href="assets/logo/icon-192.png">
@@ -18,103 +20,71 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --azul:#1A2B5C;
-  --azul-osc:#0F1828;
-  --morado:#6B4E9E;
-  --dorado:#C9A84C;
-  --dorado-suave:#E8D9A8;
-  --fondo:#FAFBFF;
-  --fondo-suave:#F1F4FB;
-  --texto:#1A2B5C;
-  --texto-sec:#6B7280;
-  --blanco:#ffffff;
-  --rojo:#C0392B;
-  --borde:#E3E8F2;
-  --radio:18px;
-  --sombra:0 10px 30px rgba(26,43,92,.10);
-  --t-titulo:'Playfair Display',serif;
-  --t-cuerpo:'Inter',system-ui,sans-serif;
+  --azul:#1A2B5C; --azul-osc:#0F1828; --morado:#6B4E9E;
+  --dorado:#C9A84C; --dorado-suave:#E8D9A8; --fondo:#FAFBFF; --fondo-suave:#F1F4FB;
+  --texto:#1A2B5C; --texto-sec:#6B7280; --blanco:#fff; --rojo:#C0392B; --verde:#1E7A46;
+  --borde:#E3E8F2; --radio:18px; --sombra:0 10px 30px rgba(26,43,92,.10);
+  --t-titulo:'Playfair Display',serif; --t-cuerpo:'Inter',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--t-cuerpo);background:var(--fondo);color:var(--texto);line-height:1.55;display:flex;justify-content:center}
-button{font-family:var(--t-cuerpo)}
-a{text-decoration:none;color:inherit}
-img{max-width:100%}
+body{font-family:var(--t-cuerpo);background:var(--fondo);color:var(--texto);line-height:1.5;display:flex;justify-content:center}
+button{font-family:var(--t-cuerpo)} a{text-decoration:none;color:inherit} img{max-width:100%}
 :focus-visible{outline:3px solid var(--morado);outline-offset:2px;border-radius:6px}
 .contenedor{width:100%;max-width:520px;min-height:100vh;background:var(--fondo)}
 
-/* ── HERO ── */
-.hero{position:relative;overflow:hidden;text-align:center;padding:34px 22px 26px;background:linear-gradient(160deg,#22366e 0%,var(--azul) 45%,#141f3e 100%);color:#fff}
+/* HERO */
+.hero{position:relative;overflow:hidden;text-align:center;padding:30px 20px 22px;background:linear-gradient(160deg,#22366e 0%,var(--azul) 45%,#141f3e 100%);color:#fff}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,rgba(107,78,158,.45),transparent 45%),radial-gradient(circle at 85% 85%,rgba(201,168,76,.25),transparent 45%)}
 .hero *{position:relative}
-.logo-hero{width:116px;height:116px;border-radius:28px;object-fit:contain;background:#fff;padding:8px;border:3px solid var(--dorado);box-shadow:0 0 0 6px rgba(201,168,76,.22),0 14px 34px rgba(0,0,0,.35)}
-.nombre{font-family:var(--t-titulo);font-size:1.85rem;font-weight:700;margin-top:16px;line-height:1.15}
-.cargo{font-size:.95rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dorado-suave);margin-top:8px}
-.credenciales{font-size:.85rem;color:#dbe3f2;margin-top:5px}
-.lema{font-family:var(--t-titulo);font-style:italic;font-size:.98rem;color:#e9edf7;margin-top:12px;padding:0 6px}
-.sep{width:70px;height:3px;background:linear-gradient(90deg,var(--dorado),transparent);margin:16px auto 0;border-radius:3px}
+.logo-hero{width:108px;height:108px;border-radius:26px;object-fit:contain;background:#fff;padding:7px;border:3px solid var(--dorado);box-shadow:0 0 0 6px rgba(201,168,76,.22),0 14px 34px rgba(0,0,0,.35)}
+.nombre{font-family:var(--t-titulo);font-size:1.75rem;font-weight:700;margin-top:14px;line-height:1.15}
+.cargo{font-size:.92rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dorado-suave);margin-top:7px}
+.credenciales{font-size:.82rem;color:#dbe3f2;margin-top:4px}
+.lema{font-family:var(--t-titulo);font-style:italic;font-size:.95rem;color:#e9edf7;margin-top:10px}
+.btn-vcard{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;padding:9px 16px;border-radius:30px;font-size:.8rem;font-weight:600;cursor:pointer}
+.btn-vcard:hover{background:rgba(255,255,255,.22)}
 
-/* ── ACCIONES ── */
-.acciones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px 16px 6px}
+/* ACCIONES PRINCIPALES */
+.acciones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px 16px 4px}
 .accion{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;background:none;border:none}
 .icono-accion{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--fondo-suave);border:1.5px solid rgba(26,43,92,.18);color:var(--azul);transition:transform .2s,box-shadow .2s,border-color .2s;box-shadow:0 4px 12px rgba(26,43,92,.08)}
 .icono-accion svg{width:26px;height:26px}
 .accion:hover .icono-accion{transform:translateY(-3px);border-color:var(--dorado);box-shadow:0 10px 22px rgba(26,43,92,.16)}
-.accion-label{font-size:.68rem;font-weight:600;letter-spacing:.03em;text-align:center;color:var(--texto-sec);text-transform:uppercase}
+.accion-label{font-size:.64rem;font-weight:600;letter-spacing:.02em;text-align:center;color:var(--texto-sec);text-transform:uppercase;max-width:96px}
 
-/* ── SECCIONES ── */
-.seccion{padding:26px 20px 0}
-.titulo-seccion{font-family:var(--t-titulo);font-size:1.3rem;font-weight:700;color:var(--azul);display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.titulo-seccion::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--dorado),transparent)}
+/* ACCIONES SECUNDARIAS */
+.secundarias{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 16px 4px}
+.sec-btn{display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1px solid var(--borde);border-radius:14px;padding:12px 8px;cursor:pointer;color:var(--azul);font-size:.72rem;font-weight:600;transition:transform .16s,box-shadow .16s,border-color .16s}
+.sec-btn:hover{transform:translateY(-2px);border-color:var(--dorado);box-shadow:var(--sombra)}
+.sec-btn .ico{font-size:22px}
 
-/* Servicios */
-.grid-servicios{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.servicio{display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:#fff;border:1px solid var(--borde);border-radius:var(--radio);padding:14px;cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;text-align:left}
-.servicio:hover{transform:translateY(-3px);box-shadow:var(--sombra);border-color:var(--dorado)}
-.servicio-icono{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--azul),var(--morado));display:flex;align-items:center;justify-content:center;font-size:20px}
-.servicio h3{font-size:.86rem;font-weight:700;color:var(--azul);line-height:1.3}
-.servicio .flecha{margin-left:auto;color:var(--dorado);font-size:1rem}
-
-/* Tarjeta horario */
-.tarjeta-info{background:#fff;border:1px solid var(--borde);border-left:4px solid var(--dorado);border-radius:var(--radio);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
-.tarjeta-info .icono{font-size:1.5rem;line-height:1}
-.tarjeta-info h4{font-size:.95rem;color:var(--azul);margin-bottom:6px}
-.tarjeta-info ul{list-style:none}
-.tarjeta-info li{font-size:.85rem;color:var(--texto-sec);padding:3px 0}
-.boton{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--azul),var(--morado));color:#fff;border:none;padding:12px 18px;border-radius:30px;font-weight:600;font-size:.9rem;cursor:pointer;box-shadow:0 6px 16px rgba(26,43,92,.25);transition:transform .18s,box-shadow .18s}
-.boton:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,43,92,.35)}
-.boton-dorado{background:linear-gradient(135deg,var(--dorado),#b8953a);color:#231a04}
-
-/* Galería */
-.grid-galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.item-galeria{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--borde);background:#fff;cursor:pointer;aspect-ratio:3/4;transition:transform .18s,box-shadow .18s}
-.item-galeria:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
-.item-galeria img{width:100%;height:100%;object-fit:cover;display:block}
-.item-galeria .pie{position:absolute;left:0;right:0;bottom:0;padding:18px 6px 6px;background:linear-gradient(transparent,rgba(15,24,40,.88));color:#fff;font-size:.6rem;font-weight:600;text-align:center;letter-spacing:.04em}
-
-/* Portal Aplicamos */
-.portal{background:linear-gradient(150deg,#fff 0%,var(--fondo-suave) 100%);border:1px solid var(--borde);border-radius:var(--radio);padding:20px;text-align:center}
-.portal .marca{font-family:var(--t-titulo);font-size:1.3rem;font-weight:700;color:var(--azul)}
-.portal .pasos{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0}
-.paso{background:#fff;border:1px solid var(--borde);border-radius:30px;padding:6px 12px;font-size:.76rem;font-weight:600;color:var(--azul)}
-.portal .nota{font-size:.78rem;color:var(--texto-sec);margin-top:10px}
+/* SECCIONES */
+.seccion{padding:20px 18px 0}
+.tarjeta{background:#fff;border:1px solid var(--borde);border-left:4px solid var(--dorado);border-radius:var(--radio);padding:16px 18px}
+.tarjeta h4{font-size:.95rem;color:var(--azul);margin-bottom:6px}
+.tarjeta ul{list-style:none}
+.tarjeta li{font-size:.84rem;color:var(--texto-sec);padding:3px 0}
+.badge-estado{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:30px;font-size:.82rem;font-weight:700;margin-top:10px}
+.badge-estado.abierto{background:#E7F5EC;color:var(--verde);border:1px solid #B9E4C8}
+.badge-estado.cerrado{background:#FBECEA;color:var(--rojo);border:1px solid #F0CFC9}
+.badge-estado .punto{width:9px;height:9px;border-radius:50%;background:currentColor}
+.prox{font-size:.76rem;color:var(--texto-sec);margin-top:6px}
 
 /* Emergencias */
-.emergencia{background:#FFF4F2;border:1px solid #F3D6D1;border-left:5px solid var(--rojo);border-radius:var(--radio);padding:16px 18px}
-.emergencia h3{color:var(--rojo);font-size:1rem;margin-bottom:8px}
-.emergencia p{font-size:.85rem;color:#5b4a47}
-.emergencia .nota{margin-top:8px;font-size:.76rem;font-style:italic}
+.emergencia{background:#FFF4F2;border:1px solid #F3D6D1;border-left:5px solid var(--rojo);border-radius:var(--radio);padding:14px 16px}
+.emergencia h3{color:var(--rojo);font-size:.95rem;margin-bottom:6px}
+.emergencia p{font-size:.82rem;color:#5b4a47}
+.emergencia .nota{margin-top:6px;font-size:.74rem;font-style:italic}
 
 /* Footer */
-.footer{text-align:center;padding:26px 20px 30px;margin-top:24px;background:var(--azul-osc);color:#cdd6ea}
-.footer .nombre{font-family:var(--t-titulo);font-size:1.05rem;color:#fff}
-.footer .cargo{font-size:.8rem;color:#aab6d2}
-.footer .frase{font-style:italic;font-size:.85rem;color:var(--dorado-suave);margin:8px 0}
-.footer .copy{font-size:.72rem;color:#7e8cb0;margin-top:8px}
-.footer .konfio{font-size:.72rem;color:rgba(201,168,76,.75);margin-top:8px;letter-spacing:.12em;text-transform:uppercase}
+.footer{text-align:center;padding:24px 18px 30px;margin-top:22px;background:var(--azul-osc);color:#cdd6ea}
+.footer .nombre{font-family:var(--t-titulo);font-size:1rem;color:#fff}
+.footer .cargo{font-size:.78rem;color:#aab6d2}
+.footer .frase{font-style:italic;font-size:.84rem;color:var(--dorado-suave);margin:8px 0}
+.footer .copy{font-size:.7rem;color:#7e8cb0;margin-top:8px}
+.footer .konfio{font-size:.7rem;color:rgba(201,168,76,.75);margin-top:8px;letter-spacing:.1em;text-transform:uppercase}
 .footer .konfio a{color:var(--dorado)}
-.btn-vcard{display:inline-block;margin-top:10px;background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;padding:8px 16px;border-radius:30px;font-size:.78rem;cursor:pointer}
 
 /* WhatsApp flotante */
 .wa{position:fixed;right:16px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45)}
@@ -123,39 +93,47 @@ img{max-width:100%}
 .wa::after{animation-delay:1.1s;border-color:rgba(37,211,102,.4)}
 @keyframes anillo{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.8);opacity:0}}
 
-/* ── MODAL ── */
-.overlay{position:fixed;inset:0;z-index:200;background:rgba(10,16,32,.72);display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+/* MODAL */
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(10,16,32,.76);display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
 .overlay.activo{display:flex}
-.sheet{width:100%;max-width:520px;max-height:86vh;overflow-y:auto;background:#fff;border-top:3px solid var(--dorado);border-radius:22px 22px 0 0;padding:20px 20px 34px;animation:subir .3s ease}
+.sheet{width:100%;max-width:520px;max-height:88vh;overflow-y:auto;background:#fff;border-top:3px solid var(--dorado);border-radius:22px 22px 0 0;padding:18px 18px 30px;animation:subir .3s ease;position:relative}
 @keyframes subir{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.sheet .cerrar{margin-left:auto;display:block;background:var(--fondo-suave);border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;color:var(--texto-sec)}
-.sheet .modal-icono{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--azul),var(--morado));display:flex;align-items:center;justify-content:center;font-size:26px}
-.sheet h3{font-family:var(--t-titulo);font-size:1.25rem;color:var(--azul);margin:10px 0 6px}
-.sheet .desc{font-size:.9rem;color:var(--texto-sec)}
+.sheet .cerrar{position:absolute;top:14px;right:14px;background:var(--fondo-suave);border:none;border-radius:50%;width:34px;height:34px;font-size:1rem;cursor:pointer;color:var(--texto-sec);z-index:5}
+.sheet .modal-icono{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--azul),var(--morado));display:flex;align-items:center;justify-content:center;font-size:24px}
+.sheet h3{font-family:var(--t-titulo);font-size:1.2rem;color:var(--azul);margin:10px 0 4px}
+.sheet .desc{font-size:.88rem;color:var(--texto-sec)}
 .sheet .puntos{margin:12px 0 16px;list-style:none}
-.sheet .puntos li{position:relative;padding:6px 0 6px 20px;font-size:.88rem;color:var(--texto)}
+.sheet .puntos li{position:relative;padding:6px 0 6px 20px;font-size:.86rem;color:var(--texto)}
 .sheet .puntos li::before{content:"◆";position:absolute;left:0;color:var(--dorado);font-size:.7rem;top:9px}
-.sheet .imagen-grande{width:100%;border-radius:14px;border:1px solid var(--borde)}
-.sheet .sub-galeria{font-size:.82rem;color:var(--texto-sec);margin-top:8px}
+.boton{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--azul),var(--morado));color:#fff;border:none;padding:12px 18px;border-radius:30px;font-weight:600;font-size:.88rem;cursor:pointer;box-shadow:0 6px 16px rgba(26,43,92,.25)}
+.boton:hover{transform:translateY(-1px)}
 
-@media(min-width:768px){
-  .overlay{align-items:center;padding:20px}
-  .sheet{border-radius:22px;border:1px solid var(--borde)}
-  .acciones{grid-template-columns:repeat(6,1fr)}
-  .grid-servicios{grid-template-columns:repeat(4,1fr)}
-}
-@media(max-width:640px){
-  .grid-galeria{grid-template-columns:repeat(2,1fr)}
-}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-}
+/* CARRUSEL */
+.carrusel{text-align:center;padding-top:6px}
+.carrusel-marco{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--borde);background:var(--fondo-suave)}
+.carrusel-img{width:100%;height:auto;max-height:52vh;object-fit:contain;display:block}
+.carrusel-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,16,32,.55);color:#fff;border:none;width:38px;height:38px;border-radius:50%;font-size:1.3rem;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center}
+.carrusel-nav.prev{left:10px}.carrusel-nav.next{right:10px}
+.carrusel-cont{font-size:.8rem;font-weight:700;color:var(--azul);margin-top:10px}
+.carrusel-titulo{font-family:var(--t-titulo);font-size:1.05rem;color:var(--azul);margin-top:10px}
+.carrusel-desc{font-size:.82rem;color:var(--texto-sec);margin-top:4px}
+.carrusel-dots{display:flex;gap:5px;justify-content:center;margin-top:10px}
+.carrusel-dots span{width:7px;height:7px;border-radius:50%;background:#cdd5e6}
+.carrusel-dots span.activo{background:var(--dorado)}
+
+/* ACORDEÓN */
+.acordeon-item{border:1px solid var(--borde);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.acordeon-cab{width:100%;display:flex;justify-content:space-between;align-items:center;background:#fff;border:none;padding:12px 14px;font-size:.88rem;font-weight:600;color:var(--azul);cursor:pointer;text-align:left}
+.acordeon-cab .chev{color:var(--dorado)}
+.acordeon-cuerpo{padding:2px 14px 14px;background:var(--fondo-suave)}
+
+@media(min-width:768px){ .overlay{align-items:center;padding:20px} .sheet{border-radius:22px;border:1px solid var(--borde)} .acciones{grid-template-columns:repeat(6,1fr)} }
+@media(prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
 </style>
 </head>
 <body>
 <div class="contenedor">
 
-  <!-- HERO -->
   <header class="hero">
     <img class="logo-hero" src="assets/logo/logo-deicy.png" alt="Logo de Deicy Buitrago" decoding="async"
          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231A2B5C%22/%3E%3Ctext x=%22100%22 y=%22110%22 font-size=%2250%22 font-family=%22Georgia%22 fill=%22%23C9A84C%22 text-anchor=%22middle%22 font-weight=%22bold%22%3EDB%3C/text%3E%3C/svg%3E'">
@@ -163,30 +141,29 @@ img{max-width:100%}
     <p class="cargo" id="c-cargo">Administradora · Propiedad Horizontal</p>
     <p class="credenciales" id="c-credenciales">Especialista en Gerencia · PNL Practitioner</p>
     <p class="lema" id="c-lema">“Compromiso, gestión y servicio para tu comunidad”</p>
-    <div class="sep"></div>
+    <button class="btn-vcard" type="button" id="btnVcard">📇 Guardar contacto</button>
   </header>
 
-  <!-- ACCIONES -->
-  <nav class="acciones" aria-label="Acciones de contacto">
+  <nav class="acciones" aria-label="Contacto principal">
     <a class="accion" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20necesito%20asesor%C3%ADa" target="_blank" rel="noopener">
-      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.56 4.13 1.53 5.86L.06 23.5a.5.5 0 0 0 .61.63l5.79-1.52A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 22c-1.91 0-3.7-.51-5.23-1.41l-.38-.22-3.88 1.02 1.04-3.78-.24-.39A9.96 9.96 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.47-7.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></span>
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.56 4.13 1.53 5.86L.06 23.5a.5.5 0 0 0 .61.63l5.79-1.52A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm5.47 14.62c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></span>
       <span class="accion-label">WhatsApp</span>
     </a>
     <a class="accion" href="tel:+573054855538">
       <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.12-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></span>
       <span class="accion-label">Llamar</span>
     </a>
-    <a class="accion" href="mailto:administracion@deicybuitrago.com">
-      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
-      <span class="accion-label">Correo</span>
-    </a>
     <a class="accion" href="https://portal.aplicamos.co/login" target="_blank" rel="noopener">
       <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span>
       <span class="accion-label">Portal</span>
     </a>
-    <a class="accion" href="https://wa.me/573044037188?text=Hola%2C%20necesito%20recoger%20escombros" target="_blank" rel="noopener">
+    <a class="accion" href="mailto:administracion@deicybuitrago.com">
+      <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+      <span class="accion-label">Correo</span>
+    </a>
+    <a class="accion" href="https://wa.me/573044037188?text=Hola%2C%20quiero%20reportar%20la%20presencia%20de%20escombros.%20Mi%20unidad%2Fresidencia%20es..." target="_blank" rel="noopener">
       <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></span>
-      <span class="accion-label">Escombros</span>
+      <span class="accion-label">Reportar escombros</span>
     </a>
     <button class="accion" type="button" id="btnCompartir">
       <span class="icono-accion"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></span>
@@ -194,78 +171,48 @@ img{max-width:100%}
     </button>
   </nav>
 
-  <!-- SERVICIOS -->
-  <section class="seccion" aria-labelledby="titulo-servicios">
-    <h2 class="titulo-seccion" id="titulo-servicios">Servicios y trámites</h2>
-    <div class="grid-servicios" id="gridServicios"></div>
-  </section>
+  <nav class="secundarias" aria-label="Acciones secundarias">
+    <button class="sec-btn" type="button" id="btnServicios"><span class="ico">📋</span>Servicios y trámites</button>
+    <button class="sec-btn" type="button" id="btnGaleria"><span class="ico">🖼️</span>Galería de avisos</button>
+    <button class="sec-btn" type="button" id="btnSobre"><span class="ico">👤</span>Sobre Deicy</button>
+  </nav>
 
-  <!-- HORARIO -->
   <section class="seccion" aria-labelledby="titulo-horario">
-    <h2 class="titulo-seccion" id="titulo-horario">Horario de atención</h2>
-    <div class="tarjeta-info">
-      <span class="icono" aria-hidden="true">🕘</span>
-      <div>
-        <h4>Lunes a viernes · 9:00 a.m. – 6:00 p.m.</h4>
-        <ul>
-          <li>📅 Sábados, domingos y festivos: sin atención administrativa</li>
-          <li>🖥️ Portal Aplicamos: 24/7</li>
-          <li>🚨 Portería emergencias: 24/7</li>
-        </ul>
-      </div>
+    <div class="tarjeta">
+      <h4 id="titulo-horario">🕘 Horario de atención</h4>
+      <ul>
+        <li>📅 Lunes a viernes · 9:00 a.m. – 6:00 p.m.</li>
+        <li>🖥️ Portal Aplicamos: 24/7</li>
+        <li>🚨 Portería emergencias: 24/7</li>
+      </ul>
+      <span class="badge-estado" id="badgeEstado"><span class="punto"></span><span id="estadoTexto">—</span></span>
+      <p class="prox" id="proxTexto"></p>
     </div>
-    <a class="boton" style="margin-top:12px;" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20quisiera%20agendar%20una%20cita" target="_blank" rel="noopener">📅 Agendar cita por WhatsApp</a>
+    <a class="boton" style="margin-top:12px;" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20quisiera%20agendar%20una%20cita.%20%C2%BFQu%C3%A9%20horarios%20tienes%20disponibles%3F" target="_blank" rel="noopener">📅 Agendar cita</a>
   </section>
 
-  <!-- GALERÍA -->
-  <section class="seccion" aria-labelledby="titulo-galeria">
-    <h2 class="titulo-seccion" id="titulo-galeria">Galería de avisos</h2>
-    <div class="grid-galeria" id="gridGaleria"></div>
-  </section>
-
-  <!-- PORTAL APLICAMOS -->
-  <section class="seccion" aria-labelledby="titulo-portal">
-    <h2 class="titulo-seccion" id="titulo-portal">Portal Aplicamos</h2>
-    <div class="portal">
-      <div class="marca">Aplicamos</div>
-      <p class="desc" style="font-size:.85rem;color:var(--texto-sec);margin-top:4px;">Portal de autogestión para residentes</p>
-      <div class="pasos">
-        <span class="paso">1 · Identifícate</span>
-        <span class="paso">2 · Elige cómo entrar</span>
-        <span class="paso">3 · Accede</span>
-      </div>
-      <a class="boton boton-dorado" href="https://portal.aplicamos.co/login" target="_blank" rel="noopener">Ir al portal ↗</a>
-      <p class="nota">🔑 Usuario y contraseña son el correo al que llega la factura.</p>
-    </div>
-  </section>
-
-  <!-- EMERGENCIAS -->
-  <section class="seccion" aria-labelledby="titulo-emergencia">
+  <section class="seccion" aria-label="Emergencias">
     <div class="emergencia">
-      <h3 id="titulo-emergencia">🚨 Emergencias · Portería 24/7</h3>
+      <h3>🚨 Emergencias · Portería 24/7</h3>
       <p>Para situaciones de emergencia comuníquese con la portería, disponible las 24 horas.</p>
       <p class="nota">No esperar respuesta por canales administrativos fuera de horario.</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="nombre">Deicy Yolima Buitrago Arismendy</div>
     <div class="cargo">Administradora · Propiedad Horizontal</div>
     <div class="frase">“Compromiso, gestión y servicio”</div>
-    <button class="btn-vcard" type="button" id="btnVcard">📇 Guardar contacto</button>
     <div class="copy">© <span id="anio"></span> Deicy Buitrago · Todos los derechos reservados</div>
     <div class="konfio">Tarjeta creada por <a href="https://konfiozinc.github.io" target="_blank" rel="noopener">KONFÍO ZINC</a></div>
   </footer>
 
 </div>
 
-<!-- WHATSAPP FLOTANTE -->
 <a class="wa" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20necesito%20asesor%C3%ADa" target="_blank" rel="noopener" aria-label="WhatsApp administración">
-  <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.56 4.13 1.53 5.86L.06 23.5a.5.5 0 0 0 .61.63l5.79-1.52A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 22c-1.91 0-3.7-.51-5.23-1.41l-.38-.22-3.88 1.02 1.04-3.78-.24-.39A9.96 9.96 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.47-7.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+  <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.56 4.13 1.53 5.86L.06 23.5a.5.5 0 0 0 .61.63l5.79-1.52A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm5.47 14.62c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
 </a>
 
-<!-- MODAL -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Detalle">
   <div class="sheet">
     <button class="cerrar" id="btnCerrar" type="button" aria-label="Cerrar">✕</button>
@@ -275,7 +222,6 @@ img{max-width:100%}
 
 <script>
 'use strict';
-// ── Datos por defecto (espejo de data/*.json; se sobreescriben si hay servidor) ──
 var CONFIG = {
   nombre: 'Deicy Yolima Buitrago Arismendy',
   cargo: 'Administradora · Propiedad Horizontal',
@@ -283,14 +229,8 @@ var CONFIG = {
   lema: 'Compromiso, gestión y servicio para tu comunidad',
   telefono: '3054855538',
   whatsapp: '573054855538',
-  fijo: '6044445636',
-  whatsappEscombros: '573044037188',
   email: 'administracion@deicybuitrago.com',
-  portal: { nombre: 'Aplicamos', descripcion: 'Portal de autogestión para residentes', nota: 'Usuario y contraseña son el correo al que llega la factura', url: 'https://portal.aplicamos.co/login' },
-  horario: { dias: 'Lunes a viernes', hora: '9:00 a.m. – 6:00 p.m.', nota: 'Sábados, domingos y festivos sin atención administrativa' },
-  emergencias: { titulo: 'Emergencias · Portería 24/7', descripcion: 'Para situaciones de emergencia comuníquese con la portería, disponible las 24 horas.', nota: 'No esperar respuesta por canales administrativos fuera de horario.' },
-  marca: 'KONFÍO ZINC',
-  konfioUrl: 'https://konfiozinc.github.io'
+  portal: 'https://portal.aplicamos.co/login'
 };
 
 var SERVICIOS = [
@@ -318,123 +258,154 @@ var GALERIA = [
   { src: 'assets/galeria/aviso-12.png', titulo: 'Banner motivacional', descripcion: '“La vida es como un espejo” · foto de Deicy' }
 ];
 
-// ── Utilidades ──
+var indiceGaleria = 0;
+var modoModal = null;
+
 function $(id){ return document.getElementById(id); }
 function escapar(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-// ── Carga externa (opcional, al servirse por HTTP) ──
-function cargarDatos(){
-  return Promise.all([
-    fetch('data/configuracion.json').then(r => r.ok ? r.json() : null).catch(function(){ return null; }),
-    fetch('data/servicios.json').then(r => r.ok ? r.json() : null).catch(function(){ return null; })
-  ]).then(function(res){
-    if (res[0]) CONFIG = Object.assign(CONFIG, res[0]);
-    if (Array.isArray(res[1]) && res[1].length) SERVICIOS = res[1];
-  });
-}
+function abrirModal(){ $('overlay').classList.add('activo'); document.body.style.overflow='hidden'; }
+function cerrarModal(){ $('overlay').classList.remove('activo'); document.body.style.overflow=''; modoModal=null; }
 
-// ── Render ──
-function renderIdentidad(){
-  $('c-nombre').textContent = CONFIG.nombre;
-  $('c-cargo').textContent = CONFIG.cargo;
-  $('c-credenciales').textContent = CONFIG.credenciales;
-  $('c-lema').textContent = '“' + CONFIG.lema + '”';
-  document.title = CONFIG.nombre.split(' ').slice(0,2).join(' ') + ' · ' + CONFIG.cargo;
-}
-function renderServicios(){
-  var cont = $('gridServicios');
-  cont.innerHTML = '';
+/* ── Servicios (acordeón) ── */
+function abrirServicios(){
+  modoModal = 'servicios';
+  var html = '<div class="modal-icono" aria-hidden="true">📋</div><h3>Servicios y trámites</h3><div class="acordeon" style="margin-top:12px">';
   SERVICIOS.forEach(function(s){
-    var btn = document.createElement('button');
-    btn.className = 'servicio';
-    btn.type = 'button';
-    btn.setAttribute('aria-haspopup','dialog');
-    btn.innerHTML = '<span class="servicio-icono" aria-hidden="true">' + s.icono + '</span>' +
-      '<h3>' + escapar(s.titulo) + '</h3>' +
-      '<span class="flecha" aria-hidden="true">›</span>';
-    btn.addEventListener('click', function(){ abrirServicio(s); });
-    cont.appendChild(btn);
+    var msg = 'Hola Deicy, necesito información sobre ' + s.titulo;
+    var puntos = s.puntos.map(function(p){ return '<li>'+escapar(p)+'</li>'; }).join('');
+    html += '<div class="acordeon-item">' +
+      '<button class="acordeon-cab" type="button" aria-expanded="false"><span>'+s.icono+' '+escapar(s.titulo)+'</span><span class="chev">▾</span></button>' +
+      '<div class="acordeon-cuerpo" hidden><p class="desc">'+escapar(s.descripcion)+'</p><ul class="puntos">'+puntos+'</ul>' +
+      '<a class="boton" style="margin-top:4px" href="https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">Consultar por WhatsApp</a></div></div>';
   });
-}
-function renderGaleria(){
-  var cont = $('gridGaleria');
-  cont.innerHTML = '';
-  GALERIA.forEach(function(g, i){
-    var fig = document.createElement('figure');
-    fig.className = 'item-galeria';
-    fig.tabIndex = 0;
-    fig.setAttribute('role','button');
-    fig.setAttribute('aria-label', g.titulo);
-    fig.innerHTML = '<img src="' + g.src + '" alt="' + escapar(g.titulo) + '" loading="lazy" decoding="async">' +
-      '<figcaption class="pie">' + escapar(g.titulo) + '</figcaption>';
-    fig.addEventListener('click', function(){ abrirGaleria(g); });
-    fig.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrirGaleria(g); } });
-    cont.appendChild(fig);
+  html += '</div>';
+  $('modalBody').innerHTML = html;
+  $('modalBody').querySelectorAll('.acordeon-cab').forEach(function(cab){
+    cab.addEventListener('click', function(){
+      var cuerpo = cab.nextElementSibling;
+      var abierto = cuerpo.hasAttribute('hidden') === false;
+      cuerpo.hidden = abierto;
+      cab.setAttribute('aria-expanded', String(!abierto));
+      cab.querySelector('.chev').textContent = abierto ? '▾' : '▴';
+    });
   });
+  abrirModal(); $('btnCerrar').focus();
 }
 
-// ── Modal ──
-function abrirServicio(s){
-  var msg = 'Hola Deicy, necesito información sobre ' + s.titulo;
-  var puntos = s.puntos.map(function(p){ return '<li>' + escapar(p) + '</li>'; }).join('');
+/* ── Galería (carrusel modal) ── */
+function pintarCarousel(){
+  var g = GALERIA[indiceGaleria];
+  var dots = '';
+  GALERIA.forEach(function(_, i){ dots += '<span class="'+(i===indiceGaleria?'activo':'')+'"></span>'; });
   $('modalBody').innerHTML =
-    '<div class="modal-icono" aria-hidden="true">' + s.icono + '</div>' +
-    '<h3>' + escapar(s.titulo) + '</h3>' +
-    '<p class="desc">' + escapar(s.descripcion) + '</p>' +
-    '<ul class="puntos">' + puntos + '</ul>' +
-    '<a class="boton" href="https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">Consultar por WhatsApp</a>';
-  $('overlay').classList.add('activo');
-  document.body.style.overflow = 'hidden';
-  $('btnCerrar').focus();
+    '<div class="carrusel" id="carrusel">' +
+    '<div class="carrusel-marco">' +
+    '<img class="carrusel-img" src="'+g.src+'" alt="'+escapar(g.titulo)+'">' +
+    '<button class="carrusel-nav prev" id="carPrev" type="button" aria-label="Anterior">‹</button>' +
+    '<button class="carrusel-nav next" id="carNext" type="button" aria-label="Siguiente">›</button>' +
+    '</div>' +
+    '<div class="carrusel-cont">'+(indiceGaleria+1)+' / '+GALERIA.length+'</div>' +
+    '<div class="carrusel-titulo">'+escapar(g.titulo)+'</div>' +
+    '<div class="carrusel-desc">'+escapar(g.descripcion)+'</div>' +
+    '<div class="carrusel-dots">'+dots+'</div></div>';
+  $('carPrev').addEventListener('click', function(){ mover(-1); });
+  $('carNext').addEventListener('click', function(){ mover(1); });
+  var touchX = 0;
+  var marco = $('carrusel');
+  marco.addEventListener('touchstart', function(e){ touchX = e.touches[0].clientX; }, {passive:true});
+  marco.addEventListener('touchend', function(e){
+    var diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) mover(diff > 0 ? 1 : -1);
+  }, {passive:true});
 }
-function abrirGaleria(g){
-  $('modalBody').innerHTML =
-    '<img class="imagen-grande" src="' + g.src + '" alt="' + escapar(g.titulo) + '">' +
-    '<h3>' + escapar(g.titulo) + '</h3>' +
-    '<p class="sub-galeria">' + escapar(g.descripcion) + '</p>';
-  $('overlay').classList.add('activo');
-  document.body.style.overflow = 'hidden';
-  $('btnCerrar').focus();
+function mover(dir){
+  indiceGaleria = (indiceGaleria + dir + GALERIA.length) % GALERIA.length;
+  pintarCarousel();
 }
-function cerrarModal(){
-  $('overlay').classList.remove('activo');
-  document.body.style.overflow = '';
+function abrirGaleria(){
+  modoModal = 'galeria';
+  indiceGaleria = 0;
+  pintarCarousel();
+  abrirModal(); $('btnCerrar').focus();
 }
 
-// ── Compartir / vCard ──
+/* ── Sobre Deicy ── */
+function abrirSobre(){
+  modoModal = 'sobre';
+  $('modalBody').innerHTML =
+    '<div class="modal-icono" aria-hidden="true">👤</div><h3>Sobre Deicy</h3>' +
+    '<p class="desc">'+escapar(CONFIG.nombre)+'</p>' +
+    '<ul class="puntos">' +
+    '<li>'+escapar(CONFIG.cargo)+'</li>' +
+    '<li>Especialista en Gerencia</li>' +
+    '<li>PNL Practitioner</li>' +
+    '</ul>' +
+    '<p class="desc">“'+escapar(CONFIG.lema)+'”</p>';
+  abrirModal(); $('btnCerrar').focus();
+}
+
+/* ── Compartir / vCard ── */
 function compartir(){
-  var url = window.location.href;
+  var url = 'https://konfiozinc.github.io/deicy-buitrago/';
   if (navigator.share) {
     navigator.share({ title: CONFIG.nombre + ' · ' + CONFIG.cargo, text: CONFIG.lema, url: url }).catch(function(){});
-  } else {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(function(){ alert('✅ Enlace copiado'); }).catch(function(){ prompt('Copia el enlace:', url); });
-    } else { prompt('Copia el enlace:', url); }
-  }
+  } else if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function(){ alert('✅ Enlace copiado'); }).catch(function(){ prompt('Copia el enlace:', url); });
+  } else { prompt('Copia el enlace:', url); }
 }
 function guardarContacto(){
-  var v = 'BEGIN:VCARD\nVERSION:3.0\nFN:' + CONFIG.nombre + '\nN:Buitrago Arismendy;Deicy Yolima;;;\nTITLE:' + CONFIG.cargo + '\nTEL;TYPE=CELL,VOICE:+57' + CONFIG.telefono + '\nTEL;TYPE=WORK,VOICE:+57' + CONFIG.fijo + '\nEMAIL:' + CONFIG.email + '\nURL:' + CONFIG.portal.url + '\nNOTE:' + CONFIG.lema + '\nEND:VCARD';
+  var v = 'BEGIN:VCARD\nVERSION:3.0\nFN:' + CONFIG.nombre + '\nN:Buitrago Arismendy;Deicy Yolima;;;\nTITLE:' + CONFIG.cargo + '\nTEL;TYPE=CELL,VOICE:+57' + CONFIG.telefono + '\nEMAIL:' + CONFIG.email + '\nURL:' + CONFIG.portal + '\nNOTE:' + CONFIG.lema + '\nEND:VCARD';
   var blob = new Blob([v], { type:'text/vcard;charset=utf-8' });
   var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'Deicy_Buitrago.vcf';
+  a.href = URL.createObjectURL(blob); a.download = 'Deicy_Buitrago.vcf';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1200);
 }
 
-// ── Eventos ──
+/* ── Horario dinámico (Colombia) ── */
+function horaBogota(){
+  return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' }));
+}
+function estadoAtencion(){
+  var bog = horaBogota();
+  var dia = bog.getDay(), hora = bog.getHours();
+  var abierto = dia >= 1 && dia <= 5 && hora >= 9 && hora < 18;
+  var nombres = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  var prox = dia;
+  do { prox = (prox + 1) % 7; } while (prox === 0 || prox === 6);
+  return { abierto: abierto, prox: nombres[prox] };
+}
+function pintarEstado(){
+  var e = estadoAtencion();
+  var badge = $('badgeEstado'), txt = $('estadoTexto'), prox = $('proxTexto');
+  badge.className = 'badge-estado ' + (e.abierto ? 'abierto' : 'cerrado');
+  txt.textContent = e.abierto ? 'Atención administrativa disponible' : 'Atención administrativa cerrada';
+  prox.textContent = e.abierto ? '' : 'Próxima atención: ' + e.prox + ' 9:00 a.m.';
+}
+
 document.addEventListener('DOMContentLoaded', function(){
+  $('c-nombre').textContent = CONFIG.nombre;
+  $('c-cargo').textContent = CONFIG.cargo;
+  $('c-credenciales').textContent = CONFIG.credenciales;
+  $('c-lema').textContent = '“' + CONFIG.lema + '”';
+  $('btnServicios').addEventListener('click', abrirServicios);
+  $('btnGaleria').addEventListener('click', abrirGaleria);
+  $('btnSobre').addEventListener('click', abrirSobre);
   $('btnCompartir').addEventListener('click', compartir);
   $('btnVcard').addEventListener('click', guardarContacto);
   $('btnCerrar').addEventListener('click', cerrarModal);
   $('overlay').addEventListener('click', function(e){ if (e.target === this) cerrarModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarModal(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { cerrarModal(); }
+    else if (modoModal === 'galeria') {
+      if (e.key === 'ArrowLeft') mover(-1);
+      if (e.key === 'ArrowRight') mover(1);
+    }
+  });
   $('anio').textContent = new Date().getFullYear();
-
-  renderIdentidad();
-  renderServicios();
-  renderGaleria();
-  cargarDatos().then(function(){ renderIdentidad(); renderServicios(); });
+  pintarEstado();
+  setInterval(pintarEstado, 60000);
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function(){ navigator.serviceWorker.register('service-worker.js').catch(function(){}); });
