@@ -32,119 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --azul:#1A2B5C; --azul-osc:#0F1828; --morado:#6B4E9E;
-  --dorado:#C9A84C; --dorado-suave:#E8D9A8; --fondo:#FAFBFF; --fondo-suave:#F1F4FB;
-  --texto:#1A2B5C; --texto-sec:#6B7280; --blanco:#fff; --rojo:#C0392B; --verde:#1E7A46;
-  --borde:#E3E8F2; --radio:18px; --sombra:0 10px 30px rgba(26,43,92,.10);
-  --t-titulo:'Playfair Display',serif; --t-cuerpo:'Inter',system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--t-cuerpo);background:var(--fondo);color:var(--texto);line-height:1.5;display:flex;justify-content:center}
-button{font-family:var(--t-cuerpo)} a{text-decoration:none;color:inherit} img{max-width:100%}
-:focus-visible{outline:3px solid var(--morado);outline-offset:2px;border-radius:6px}
-.contenedor{width:100%;max-width:520px;min-height:100vh;background:var(--fondo)}
-
-/* HERO */
-.hero{position:relative;overflow:hidden;text-align:center;padding:30px 20px 22px;background:linear-gradient(160deg,#22366e 0%,var(--azul) 45%,#141f3e 100%);color:#fff}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,rgba(107,78,158,.45),transparent 45%),radial-gradient(circle at 85% 85%,rgba(201,168,76,.25),transparent 45%)}
-.hero *{position:relative}
-.logo-hero{width:108px;height:108px;border-radius:26px;object-fit:contain;background:#fff;padding:7px;border:3px solid var(--dorado);box-shadow:0 0 0 6px rgba(201,168,76,.22),0 14px 34px rgba(0,0,0,.35)}
-.nombre{font-family:var(--t-titulo);font-size:1.75rem;font-weight:700;margin-top:14px;line-height:1.15}
-.cargo{font-size:.92rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dorado-suave);margin-top:7px}
-.credenciales{font-size:.82rem;color:#dbe3f2;margin-top:4px}
-.lema{font-family:var(--t-titulo);font-style:italic;font-size:.95rem;color:#e9edf7;margin-top:10px}
-.btn-vcard{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;padding:9px 16px;border-radius:30px;font-size:.8rem;font-weight:600;cursor:pointer}
-.btn-vcard:hover{background:rgba(255,255,255,.22)}
-
-/* ACCIONES PRINCIPALES */
-.acciones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px 16px 4px}
-.accion{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;background:none;border:none}
-.icono-accion{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--fondo-suave);border:1.5px solid rgba(26,43,92,.18);color:var(--azul);transition:transform .2s,box-shadow .2s,border-color .2s;box-shadow:0 4px 12px rgba(26,43,92,.08)}
-.icono-accion svg{width:26px;height:26px}
-.accion:hover .icono-accion{transform:translateY(-3px);border-color:var(--dorado);box-shadow:0 10px 22px rgba(26,43,92,.16)}
-.accion-label{font-size:.64rem;font-weight:600;letter-spacing:.02em;text-align:center;color:var(--texto-sec);text-transform:uppercase;max-width:96px}
-
-/* ACCIONES SECUNDARIAS */
-.secundarias{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 16px 4px}
-.sec-btn{display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1px solid var(--borde);border-radius:14px;padding:12px 8px;cursor:pointer;color:var(--azul);font-size:.72rem;font-weight:600;transition:transform .16s,box-shadow .16s,border-color .16s}
-.sec-btn:hover{transform:translateY(-2px);border-color:var(--dorado);box-shadow:var(--sombra)}
-.sec-btn .ico{font-size:22px}
-
-/* SECCIONES */
-.seccion{padding:20px 18px 0}
-.tarjeta{background:#fff;border:1px solid var(--borde);border-left:4px solid var(--dorado);border-radius:var(--radio);padding:16px 18px}
-.tarjeta h4{font-size:.95rem;color:var(--azul);margin-bottom:6px}
-.tarjeta ul{list-style:none}
-.tarjeta li{font-size:.84rem;color:var(--texto-sec);padding:3px 0}
-.badge-estado{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:30px;font-size:.82rem;font-weight:700;margin-top:10px}
-.badge-estado.abierto{background:#E7F5EC;color:var(--verde);border:1px solid #B9E4C8}
-.badge-estado.cerrado{background:#FBECEA;color:var(--rojo);border:1px solid #F0CFC9}
-.badge-estado .punto{width:9px;height:9px;border-radius:50%;background:currentColor}
-.prox{font-size:.76rem;color:var(--texto-sec);margin-top:6px}
-
-/* Emergencias */
-.emergencia{background:#FFF4F2;border:1px solid #F3D6D1;border-left:5px solid var(--rojo);border-radius:var(--radio);padding:14px 16px}
-.emergencia h3{color:var(--rojo);font-size:.95rem;margin-bottom:6px}
-.emergencia p{font-size:.82rem;color:#5b4a47}
-.emergencia .nota{margin-top:6px;font-size:.74rem;font-style:italic}
-
-/* Footer */
-.footer{text-align:center;padding:24px 18px 30px;margin-top:22px;background:var(--azul-osc);color:#cdd6ea}
-.footer .nombre{font-family:var(--t-titulo);font-size:1rem;color:#fff}
-.footer .cargo{font-size:.78rem;color:#aab6d2}
-.footer .frase{font-style:italic;font-size:.84rem;color:var(--dorado-suave);margin:8px 0}
-.footer .copy{font-size:.7rem;color:#7e8cb0;margin-top:8px}
-.footer .konfio{font-size:.7rem;color:rgba(201,168,76,.75);margin-top:8px;letter-spacing:.1em;text-transform:uppercase}
-.footer .konfio a{color:var(--dorado)}
-
-/* WhatsApp flotante — anclado al ancho del contenedor (centrado, sin desborde) */
-.wa-ancla{position:fixed;left:50%;width:min(520px,100vw);transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;justify-content:flex-end;padding-right:14px;z-index:60;pointer-events:none}
-.wa{position:relative;flex:0 0 auto;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45);pointer-events:auto}
-.wa svg{width:30px;height:30px;fill:#fff}
-.wa::before,.wa::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,211,102,.6);animation:anillo 2.2s ease-out infinite}
-.wa::after{animation-delay:1.1s;border-color:rgba(37,211,102,.4)}
-@keyframes anillo{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.8);opacity:0}}
-
-/* MODAL */
-.overlay{position:fixed;inset:0;z-index:200;background:rgba(10,16,32,.76);display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
-.overlay.activo{display:flex}
-.sheet{width:100%;max-width:520px;max-height:88vh;overflow-y:auto;background:#fff;border-top:3px solid var(--dorado);border-radius:22px 22px 0 0;padding:18px 18px 30px;animation:subir .3s ease;position:relative}
-@keyframes subir{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.sheet .cerrar{position:absolute;top:14px;right:14px;background:var(--fondo-suave);border:none;border-radius:50%;width:34px;height:34px;font-size:1rem;cursor:pointer;color:var(--texto-sec);z-index:5}
-.sheet .modal-icono{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--azul),var(--morado));display:flex;align-items:center;justify-content:center;font-size:24px}
-.sheet h3{font-family:var(--t-titulo);font-size:1.2rem;color:var(--azul);margin:10px 0 4px}
-.sheet .desc{font-size:.88rem;color:var(--texto-sec)}
-.sheet .puntos{margin:12px 0 16px;list-style:none}
-.sheet .puntos li{position:relative;padding:6px 0 6px 20px;font-size:.86rem;color:var(--texto)}
-.sheet .puntos li::before{content:"◆";position:absolute;left:0;color:var(--dorado);font-size:.7rem;top:9px}
-.boton{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--azul),var(--morado));color:#fff;border:none;padding:12px 18px;border-radius:30px;font-weight:600;font-size:.88rem;cursor:pointer;box-shadow:0 6px 16px rgba(26,43,92,.25)}
-.boton:hover{transform:translateY(-1px)}
-
-/* CARRUSEL */
-.carrusel{text-align:center;padding-top:6px}
-.carrusel-marco{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--borde);background:var(--fondo-suave)}
-.carrusel-img{width:100%;height:auto;max-height:52vh;object-fit:contain;display:block}
-.carrusel-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,16,32,.55);color:#fff;border:none;width:38px;height:38px;border-radius:50%;font-size:1.3rem;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center}
-.carrusel-nav.prev{left:10px}.carrusel-nav.next{right:10px}
-.carrusel-cont{font-size:.8rem;font-weight:700;color:var(--azul);margin-top:10px}
-.carrusel-titulo{font-family:var(--t-titulo);font-size:1.05rem;color:var(--azul);margin-top:10px}
-.carrusel-desc{font-size:.82rem;color:var(--texto-sec);margin-top:4px}
-.carrusel-dots{display:flex;gap:5px;justify-content:center;margin-top:10px}
-.carrusel-dots span{width:7px;height:7px;border-radius:50%;background:#cdd5e6}
-.carrusel-dots span.activo{background:var(--dorado)}
-
-/* ACORDEÓN */
-.acordeon-item{border:1px solid var(--borde);border-radius:12px;margin-bottom:8px;overflow:hidden}
-.acordeon-cab{width:100%;display:flex;justify-content:space-between;align-items:center;background:#fff;border:none;padding:12px 14px;font-size:.88rem;font-weight:600;color:var(--azul);cursor:pointer;text-align:left}
-.acordeon-cab .chev{color:var(--dorado)}
-.acordeon-cuerpo{padding:2px 14px 14px;background:var(--fondo-suave)}
-
-@media(min-width:768px){ .overlay{align-items:center;padding:20px} .sheet{border-radius:22px;border:1px solid var(--borde)} .acciones{grid-template-columns:repeat(6,1fr)} }
-@media(prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="contenedor">
@@ -158,6 +46,11 @@ button{font-family:var(--t-cuerpo)} a{text-decoration:none;color:inherit} img{ma
     <p class="lema" id="c-lema">“Compromiso, gestión y servicio para tu comunidad”</p>
     <button class="btn-vcard" type="button" id="btnVcard">📇 Guardar contacto</button>
   </header>
+
+  <a class="cta-wa" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20necesito%20asesor%C3%ADa" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Escribir por WhatsApp
+  </a>
 
   <nav class="acciones" aria-label="Contacto principal">
     <a class="accion" href="https://wa.me/573054855538?text=Hola%20Deicy%2C%20necesito%20asesor%C3%ADa" target="_blank" rel="noopener">
